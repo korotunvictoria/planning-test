@@ -343,11 +343,6 @@ background-color: var(--sidebar-cream); border: 1px solid var(--border-sage); wi
 .bet-result-conclusion { padding: 16px; background: var(--sidebar-cream); border-left: 4px solid var(--accent-sage); border-radius: 8px; margin-bottom: 24px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-olive); }
 .bet-result-conclusion.fail { border-left-color: var(--accent-terracotta); }
 .bet-final-screen { text-align: center; }
-.bet-final-score { font-family: 'Caveat', cursive; font-size: 72px; font-weight: 700; color: var(--accent-sage); margin: 4px 0 !important; line-height: 1; }
-.bet-final-score span { font-size: 32px; color: var(--text-muted); }
-.bet-final-screen .bet-scenario-card { padding: 20px 32px; }
-.bet-final-screen .bet-scenario-title { margin-bottom: 8px; }
-.bet-final-screen .article-p { margin-bottom: 4px !important; }
 .bet-final-insight { text-align: left; margin: 16px 0; }
 .bet-final-insight h3 { font-family: 'Caveat', cursive; font-size: 26px; color: var(--text-olive); margin-bottom: 8px; }
 .bet-final-insight p { font-family: 'Lora', serif; font-size: 15px; line-height: 1.6; color: var(--text-olive); margin-bottom: 12px; }
@@ -404,13 +399,6 @@ background-color: var(--sidebar-cream); border: 1px solid var(--border-sage); wi
 .swiss-monster-wrap { flex: 0 0 420px; position: relative; }
 .swiss-monster-container { position: relative; width: 100%; aspect-ratio: 1/1; background: var(--sidebar-cream); border-radius: 24px; border: 3px solid var(--border-sage); overflow: hidden; box-shadow: var(--shadow-soft); }
 .swiss-monster-container img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.swiss-holes-overlay { position: absolute; inset: 0; pointer-events: none; }
-.swiss-hole { position: absolute; border-radius: 50%; background: radial-gradient(circle, #FFF8E7 0%, #E29C68 60%, #C36A5B 100%); box-shadow: 0 0 20px rgba(226, 156, 104, 0.8), inset 0 0 10px rgba(255, 248, 231, 0.6); transform: scale(0); transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-.swiss-hole.visible { transform: scale(1); }
-.swiss-hole-1 { width: 60px; height: 60px; top: 30%; left: 25%; }
-.swiss-hole-2 { width: 50px; height: 50px; top: 45%; left: 55%; }
-.swiss-hole-3 { width: 55px; height: 55px; top: 60%; left: 30%; }
-.swiss-hole-4 { width: 45px; height: 45px; top: 25%; left: 60%; }
 .swiss-progress-badge { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--bg-cream); padding: 8px 20px; border-radius: 20px; border: 2px solid var(--border-sage); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-olive); white-space: nowrap; }
 .swiss-progress-badge span { color: var(--accent-sage); font-size: 18px; }
 .swiss-choices-wrap { flex: 1; }
@@ -425,58 +413,436 @@ background-color: var(--sidebar-cream); border: 1px solid var(--border-sage); wi
 .swiss-feedback-title { font-family: 'Caveat', cursive; font-size: 26px; margin: 0; }
 .swiss-feedback.correct .swiss-feedback-title { color: var(--accent-sage); }
 .swiss-feedback.incorrect .swiss-feedback-title { color: var(--accent-terracotta); }
+.swiss-feedback.incorrect .swiss-feedback-header { color: var(--accent-terracotta); }
 .swiss-feedback-text { font-family: 'Lora', serif; font-size: 15px; line-height: 1.5; color: var(--text-olive); margin: 0; }
 .swiss-victory-title { font-family: 'Caveat', cursive; font-size: 44px; color: var(--accent-sage); margin: 0 0 12px 0; }
 .swiss-summary-card { border-color: var(--accent-sage); background: rgba(95, 111, 82, 0.05); text-align: center; padding: 40px 32px; }
 .swiss-warning-card { border-color: var(--accent-terracotta); background: rgba(195, 106, 91, 0.05); }
-@media (max-width: 1024px) {
-.rule-top-grid, .game-view-grid { grid-template-columns: 1fr; }
-.rule-illustration-img { max-width: 280px; margin: 0 auto; }
-#app-container { max-width: 100%; margin: 0 auto; }
-.swiss-game-layout { flex-direction: column; }
-.swiss-monster-wrap { flex: 0 0 auto; width: 100%; max-width: 420px; margin: 0 auto; }
+/* Responsive planner and browser chrome */
+:root {
+  --tab-height: 40px;
+  --nav-height: 44px;
+  --page-gutter: clamp(16px, 3vw, 56px);
+  --section-gap: clamp(10px, 2.3dvh, 24px);
+  --text-size: clamp(14px, calc(12px + .32dvh), 17px);
 }
-@media (max-width: 900px) {
-body, html { overflow: auto; }
-.browser-window { height: auto; min-height: 100vh; overflow: visible; }
-.app-viewport { flex-direction: column; height: auto; overflow: visible; }
-.burger-btn { display: flex; }
-.app-sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: 290px; height: 100vh; z-index: 90; transform: translateX(-100%); transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 4px 0 25px rgba(60, 63, 56, 0.15); }
-.app-sidebar.open { transform: translateX(0); }
-.sidebar-backdrop { display: block; }
-.sidebar-backdrop.active { opacity: 1; pointer-events: auto; }
-.app-main-content { overflow-y: visible; height: auto; width: 100%; }
-.main-content-inner { padding: 20px; }
-.cards-grid { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 14px; }
-.image-card { width: 135px; height: 135px; }
-.clock-card { height: 135px; padding: 12px 18px; width: fit-content; }
-.flip-unit { width: 68px; height: 72px; }
-.card-top, .card-bottom, .card-flip-leaf { font-size: 44px; }
-.page-title, .greeting-title, .placeholder-title, .rule-title-wrap h1 { font-size: 40px; }
-.bet-scenario-card { padding: 24px; }
-.bet-scenario-title { font-size: 26px; }
-.mobile-hint { display: block; }
-#buffer-task-panel { min-height: 160px; }
-.buffer-task { padding: 8px 12px; font-size: 12px; }
-.buffer-time-label { width: 45px; font-size: 10px; }
-.buffer-slot { height: 28px; }
-.buffer-placed-task { font-size: 11px; padding: 3px 6px; }
+[hidden] { display: none !important; }
+:where(button, [role="button"], textarea, .buffer-slot):focus-visible {
+  outline: 2px solid var(--accent-olive);
+  outline-offset: 2px;
 }
-@media (max-width: 600px) {
-.tab-bar { padding: 6px 10px 0 10px; }
-.chrome-tab { padding: 4px 8px; font-size: 12px !important; }
-.address-bar { font-size: 11px; padding: 3px 8px; }
-.greeting-title, .page-title, .placeholder-title, .rule-title-wrap h1 { font-size: 34px; }
-.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; }
-.image-card { width: 100%; max-width: 145px; height: auto; aspect-ratio: 1 / 1; justify-self: center; }
-.clock-card { grid-column: 1 / -1; width: fit-content !important; height: auto; padding: 16px 24px; justify-self: center; }
-#buffer-app-container { padding: 15px; }
-.buffer-feedback-title { font-size: 26px; }
-.buffer-timeline-item { font-size: 13px; }
-.bet-scenario-card { padding: 20px; }
-.bet-scenario-title { font-size: 24px; }
-.bet-final-score { font-size: 56px; }
-.swiss-monster-wrap { flex: 0 0 auto; width: 100%; }
+.browser-window { width: 100%; height: 100dvh; }
+.tab-bar { height: var(--tab-height); }
+.nav-bar { height: var(--nav-height); }
+.address-bar { max-width: none; min-width: 0; }
+#url-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-viewport { height: auto; min-height: 0; }
+.app-sidebar { width: clamp(190px, 20vw, 310px); padding: 14px clamp(8px, 1.15vw, 20px); }
+.menu-item { white-space: normal; gap: 6px; }
+.menu-item-left { min-width: 0; gap: 8px; }
+.sidebar-bottom { padding-top: 12px; min-height: 0; }
+.sidebar-menu-img { max-width: none; max-height: min(100%, 40dvh); object-fit: contain; }
+.sidebar-close-btn { display: none; }
+.app-main-content { min-width: 0; }
+.main-content-inner { padding: var(--section-gap) var(--page-gutter); }
+.view-container { animation-name: viewFade; }
+@keyframes viewFade { from { opacity: 0; } to { opacity: 1; } }
+.page-title, .rule-title-wrap h1 { font-size: clamp(34px, 6.7dvh, 62px); }
+.article-p, .rule-bullet-list, .greeting-subtitle, .quote-text, .post-game-text-content ol {
+  font-size: var(--text-size);
+  line-height: 1.45;
+}
+.article-p, .greeting-subtitle { margin-bottom: var(--section-gap); }
+.rule-title-wrap, .back-to-dashboard-btn { margin-bottom: var(--section-gap); }
+.quote-card { padding: clamp(10px, 2dvh, 20px); }
+.cta-btn, .pomo-btn, .notes-download-btn, .notes-save-btn { white-space: normal; }
+.header-banner-container { margin-bottom: 0; }
+.header-banner-img { height: clamp(54px, 12dvh, 125px); object-fit: cover; }
+#view-dashboard .greeting-section { margin-bottom: 0; }
+#view-dashboard .quote-card { margin-bottom: 0; }
+.greeting-divider { margin-block: var(--section-gap); }
+.cards-grid { gap: clamp(10px, 2vw, 26px); }
+.image-card { width: min(18vw, 23dvh, 210px); height: auto; }
+.clock-card { height: clamp(80px, 23dvh, 210px); }
+.flip-unit { width: clamp(44px, 10dvh, 90px); height: clamp(45px, 11dvh, 98px); }
+.card-top, .card-bottom, .card-flip-leaf { font-size: clamp(30px, 6.7dvh, 58px); }
+.notes-overlay, .bet-result-overlay { visibility: hidden; }
+.notes-overlay.active, .bet-result-overlay.active { visibility: visible; }
+.notes-modal, .bet-result-modal { max-height: calc(100dvh - 24px); overflow: auto; }
+.notes-textarea { height: clamp(76px, 32dvh, 260px); }
+.notes-footer { flex-wrap: wrap; }
+.notes-btns-group, #refusals-feedback-step > div:last-child { flex-wrap: wrap; }
+.rule-top-grid { gap: clamp(14px, 3vw, 48px); align-items: center; }
+.rule-top-grid > div:last-child { flex: 0 0 min(40%, 34dvh + 8vw); }
+.rule-illustration-img { position: static; display: block; height: auto; max-height: 44dvh; }
+.game-view-grid { grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr); gap: clamp(16px, 3vw, 44px); }
+#app-container { max-width: min(100%, 620px); height: clamp(295px, 100dvh - 245px, 590px); min-height: 0; }
+.task-card { max-width: calc(100% - 22px); }
+.screen.hidden { visibility: hidden; }
+#start-screen, #result-screen { gap: clamp(4px, 1dvh, 12px); }
+.post-game-text-content, .post-game-text-content ol { gap: clamp(5px, 1.5dvh, 16px); }
+.post-game-text-content { font-size: var(--text-size); line-height: 1.45; }
+.post-game-text-content > p, .post-game-text-content ol { font-size: inherit; }
+.post-game-text-content > p { margin-bottom: 0; }
+.bet-final-screen { display: grid; grid-template-columns: minmax(180px, .72fr) minmax(0, 1.28fr); gap: var(--section-gap); align-items: start; }
+.bet-final-result {
+  place-self: center;
+  width: min(100%, 19rem);
+  padding: clamp(6px, 1.6dvh, 16px) 8px;
+  border-radius: 16px;
+  background: rgba(164, 180, 148, .17);
+  font: 700 clamp(24px, 4dvh, 36px)/1.1 'Caveat', cursive;
+  color: var(--accent-sage);
+  text-align: center;
+}
+.bet-final-result h2 { font: inherit; }
+.bet-final-insight, .bet-final-tip { margin: 0; }
+.bet-final-tip { grid-column: 1 / -1; }
+.buffer-air-rule { border-color: var(--accent-sage); margin: 0; padding: 8px 12px; }
+.buffer-air-rule .quote-label { margin-bottom: 4px; }
+.buffer-intro-copy > .article-p { margin-bottom: clamp(6px, 1.4dvh, 14px); }
+.video-control {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: rgba(44, 48, 43, .48); color: white; border: 0; cursor: pointer;
+  transition: opacity .2s;
+}
+.video-control-icon {
+  width: 64px; height: 64px; display: grid; place-items: center;
+  border-radius: 50%; background: var(--accent-terracotta);
+}
+.video-control .pause-icon { display: none; }
+.course-video.is-playing .video-control {
+  opacity: 0; place-items: end start; padding: 8px;
+  background: linear-gradient(transparent 72%, rgba(0, 0, 0, .55));
+}
+.course-video.is-playing .video-control-icon { width: 40px; height: 40px; background: transparent; }
+.course-video.is-playing .play-icon { display: none; }
+.course-video.is-playing .pause-icon { display: block; }
+.course-video.is-playing .video-control:focus-visible { opacity: 1; outline-offset: -3px; }
+@media (hover: hover) {
+  .course-video.is-playing:hover .video-control { opacity: 1; }
+}
+.refusals-illustration { display: block; width: min(100%, 320px); height: auto; }
+#rule-state-intro > .article-p:has(+ .rule-bullet-list) { margin-bottom: 4px; }
+#rule-state-intro .rule-bullet-list { margin-top: 0; }
+.buffer-simulator-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--section-gap); }
+.buffer-left-column, .buffer-right-column { min-width: 0; }
+#buffer-app-container, .buffer-feedback-card { padding: clamp(10px, 2dvh, 24px); gap: 8px; }
+#buffer-task-panel { min-height: 0; }
+.buffer-right-column > .article-p { margin-bottom: 0; }
+#buffer-calendar { --slot-height: clamp(12px, (100dvh - 329px) / 16, 36px); }
+.buffer-cal-row { height: var(--slot-height); }
+.buffer-time-label, .buffer-slot { height: 100%; min-width: 0; padding-block: 0; }
+.buffer-slot { cursor: pointer; }
+.buffer-task { min-height: 36px; text-align: left; width: 100%; }
+.buffer-task::before {
+  content: ""; flex: 0 0 9px; height: 16px;
+  background: radial-gradient(circle, var(--accent-sage) 1px, transparent 1.6px) 0 0 / 4px 5px;
+}
+.buffer-task:active { cursor: grabbing; }
+.buffer-task.selected { box-shadow: inset 3px 0 var(--accent-sage); }
+.buffer-task-icon, .buffer-task-duration { flex-shrink: 0; }
+.buffer-slot.available { background: rgba(95, 111, 82, .13); }
+.buffer-slot.available:hover, .buffer-slot.drag-over { background: rgba(95, 111, 82, .26); outline: 1px dashed var(--accent-sage); outline-offset: -2px; }
+.buffer-placed-task {
+  height: calc(var(--duration) * var(--slot-height) - 4px);
+  z-index: 1; white-space: normal; line-height: 1.1; text-align: left; border: 0;
+}
+.buffer-slot.conflict .buffer-placed-task { box-shadow: inset 0 0 0 2px #7e3327; }
+.buffer-timeline-item { padding: 7px 0; margin-bottom: 3px; border-bottom: 1px solid var(--border-sage); }
+.buffer-feedback-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.buffer-feedback-actions button { flex: 1 1 auto; }
+.buffer-right-column:has(#buffer-feedback-panel:not([style*="display: none"])) > :not(#buffer-feedback-panel) { display: none !important; }
+#buffer-state-playing:has(#buffer-feedback-panel:not([style*="display: none"])) #btn-buffer-check { display: none !important; }
+.swiss-game-layout { margin-top: var(--section-gap); gap: var(--section-gap); }
+.swiss-monster-wrap { flex: 0 1 min(36%, 48dvh); min-width: 0; }
+.swiss-monster-container { aspect-ratio: 2436 / 1932; }
+.swiss-monster-container img { mask-image: var(--monster-mask, none); mask-composite: intersect; }
+.swiss-progress-badge { position: static; transform: none; text-align: center; margin-top: 8px; }
+.swiss-choices-wrap { min-width: 0; }
+.swiss-action-btn { padding: clamp(6px, 1.3dvh, 14px) 12px; margin-bottom: 6px; }
+.swiss-feedback { margin-top: 8px; padding: 10px 12px; }
+.swiss-feedback-header { margin-bottom: 2px; }
+.swiss-feedback-text { font-size: var(--text-size); line-height: 1.35; }
+.swiss-next { margin-top: 8px; }
+.course-exit { min-height: 100dvh; width: 100%; display: grid; place-items: center; padding: 24px; text-align: center; }
+
+@media (orientation: landscape) {
+  html, body, .app-main-content, .app-sidebar { overflow: clip; }
+  .view-container.active { min-height: 100%; }
+  #view-dashboard.active { display: flex !important; flex-direction: column; }
+  #view-dashboard .main-content-inner { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: var(--section-gap); }
+  #view-dashboard .greeting-divider { margin: 0; }
+  #view-dashboard .cards-grid { justify-content: flex-start; gap: clamp(12px, 1.6vw, 24px); }
+  #rule-state-intro .rule-top-grid { display: block; margin-bottom: 8px; }
+  #rule-state-intro .wrapper-illustration { float: right; width: min(34%, 37dvh); margin: 0 0 6px 22px; }
+  #rule-state-intro .rule-top-grid > :last-child { display: contents; }
+  #rule-state-intro .quote-card { display: flow-root; margin-block: 12px !important; }
+  #buffer-state-intro .rule-top-grid { margin-bottom: 6px; }
+  #buffer-state-intro .buffer-intro-art { align-self: stretch; flex: 0 0 min(34%, 46dvh); position: relative; }
+  .buffer-intro-art .rule-illustration-img { position: absolute; inset: 0; height: 100%; max-height: none; }
+  #view-youtube .main-content-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--section-gap); align-items: start; }
+  #view-youtube .main-content-inner > :nth-child(-n+2) { grid-column: 1 / -1; justify-self: start; }
+  .course-video { grid-row: span 2; }
+  .refusals-illustration { float: right; width: min(30%, 34dvh); margin: 0 0 8px 22px; }
+}
+@media (orientation: landscape) and (max-height: 740px) {
+  :root { --section-gap: clamp(7px, 1.6dvh, 14px); }
+  #view-dashboard .main-content-inner { display: grid; grid-template-columns: 1.1fr .9fr; grid-template-rows: auto auto; align-content: space-evenly; align-items: center; }
+  #view-dashboard .greeting-divider { display: none; }
+  #view-dashboard .cards-grid { grid-column: 1 / -1; }
+  #rule-state-intro .quote-card, #swiss-state-intro .quote-card { margin-block: var(--section-gap) !important; }
+  .bet-day-indicator, .bet-scenario-card { margin-bottom: var(--section-gap); padding: var(--section-gap); }
+  .bet-scenario-text { margin-bottom: var(--section-gap); }
+  .bet-choice-btn { padding: 9px 12px; }
+}
+@media (orientation: landscape) and (max-height: 650px) {
+  :root { --tab-height: 34px; --nav-height: 34px; --text-size: 13px; --page-gutter: clamp(12px, 2.25vw, 26px); }
+  .tab-bar { padding-top: 2px; }
+  .chrome-tab { height: 29px; }
+  .app-sidebar { width: clamp(165px, 22vw, 220px); padding-block: 6px; }
+  .sidebar-logo { margin-bottom: 4px; padding-bottom: 4px; }
+  .sidebar-menu { gap: 2px; }
+  .menu-item { padding: 4px 5px; font-size: 12px !important; }
+  .sidebar-menu-img { max-height: min(100%, 29dvh); }
+  .header-banner-img { height: clamp(32px, 9dvh, 52px); object-fit: contain; background: #a6ad94; }
+  .page-title, .rule-title-wrap h1 { font-size: clamp(29px, 7dvh, 38px); }
+  .back-to-dashboard-btn { margin-bottom: 4px; }
+  #app-container { height: max(260px, 100dvh - 175px); }
+  .cta-btn, .pomo-btn, .btn { padding-block: 6px; }
+  .rule-top-grid { margin-bottom: 6px; }
+  .rule-illustration-img { max-height: 32dvh; }
+  .rule-bullet-list { margin-block: 6px; }
+  .rule-bullet-list li { margin-bottom: 3px; }
+  #view-refusals-list .main-content-inner > .article-p,
+  #view-youtube .article-p, #view-youtube .rule-bullet-list { margin-block: 4px !important; }
+  .screen { padding: 7px; }
+  #zones-container { height: 48px; }
+  .zone-icon svg, .result-icon-wrap svg { height: 14px; }
+  .hud-box { height: 30px; }
+  .rules-list, .feedback-box, .accuracy-container, .stat-card, .insight-box { padding: 5px 8px; }
+  .rule-item { margin-bottom: 3px; }
+  .score-summary { font-size: 25px; }
+  .post-game-text-content ol { line-height: 1.35; }
+  .bet-result-modal, .notes-inner { padding: 12px; }
+  .bet-final-insight p, .bet-final-tip .quote-text, .bet-scenario-text { font-size: var(--text-size); line-height: 1.35; }
+  .bet-final-tip { padding: 9px 12px; }
+  .buffer-timeline-item { font-size: 12px; padding: 3px 0; gap: 5px; }
+  .buffer-feedback-title { font-size: 24px; margin-bottom: 6px; }
+  .buffer-feedback-card .article-p { margin-bottom: 5px !important; font-size: 12px !important; }
+  .buffer-feedback-card .buffer-feedback-conclusion { margin-top: 5px !important; padding: 5px !important; }
+  .swiss-choices-wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+  .swiss-action-btn { margin: 0; font-size: 12px; gap: 5px; padding: 5px; }
+  .swiss-action-btn svg { width: 15px; }
+  #swiss-feedback, .swiss-next { grid-column: 1 / -1; }
+}
+@media (orientation: landscape) and (max-height: 480px), (orientation: landscape) and (max-width: 900px) {
+  :root { --tab-height: 30px; --nav-height: 31px; --section-gap: 6px; --page-gutter: 14px; }
+  .burger-btn { display: flex; }
+  .app-sidebar {
+    position: absolute; inset: 0 auto 0 0; width: min(240px, 50vw);
+    visibility: hidden; transform: translateX(-100%); transition: transform .25s;
+  }
+  .app-sidebar.open { visibility: visible; transform: none; }
+  .sidebar-backdrop { display: block; position: absolute; z-index: 9; }
+  .sidebar-backdrop.active { opacity: 1; pointer-events: auto; }
+  .view-container:not(#view-dashboard) .main-content-inner { padding-block: 5px; }
+  #view-rule-2-min .main-content-inner {
+    display: grid; grid-template-columns: auto minmax(0, 1fr);
+    align-items: center; column-gap: 12px;
+  }
+  #view-rule-2-min .main-content-inner > :nth-child(n+3) { grid-column: 1 / -1; }
+  .rule-title-wrap h1 { font-size: 28px; margin-bottom: 3px; }
+  .rule-title-wrap, .back-to-dashboard-btn { margin-bottom: 3px; }
+  .back-to-dashboard-btn { font-size: 12px !important; }
+  .rule-title-underline { height: 2px; }
+  .article-p, .rule-bullet-list, .quote-text, .post-game-text-content ol { line-height: 1.3; }
+  .quote-card { padding: 6px 10px; border-radius: 12px; }
+  .quote-label { margin-bottom: 3px; }
+  #rule-state-intro { display: grid; grid-template-columns: 1.1fr 1fr; column-gap: 18px; align-items: start; }
+  #rule-state-intro[style*="display: none"] { display: none; }
+  #rule-state-intro .rule-top-grid { grid-row: span 3; }
+  #rule-state-intro .wrapper-illustration { width: min(46%, 40dvh); margin: 0 0 4px 7px; }
+  #rule-state-intro .rule-illustration-img { max-height: 38dvh; }
+  #rule-state-intro .rule-bullet-list { margin-block: 0; }
+  #rule-state-intro > .article-p { margin-bottom: 2px; }
+  #rule-state-intro .quote-card { margin-block: 2px !important; padding-block: 4px; }
+  #rule-state-intro > .cta-btn { justify-self: start; margin-top: 0 !important; }
+  #view-refusals-list .main-content-inner > .article-p { margin-block: 2px !important; }
+  #view-refusals-list .back-to-dashboard-btn { float: right; margin: 4px 0 2px 8px; }
+  #view-refusals-list .rule-bullet-list { margin-block: 4px; columns: 2; column-gap: 16px; max-width: 660px; }
+  #view-refusals-list .rule-bullet-list li { break-inside: avoid; }
+  #view-refusals-list .main-content-inner > .cta-btn { margin-top: 2px !important; }
+  #buffer-state-intro .rule-top-grid > .buffer-intro-art, #swiss-state-intro .rule-top-grid > div:last-child { flex-basis: 25%; }
+  #swiss-state-summary > .quote-card { margin-block: 6px !important; }
+  #swiss-state-summary > .cta-btn { margin-top: 4px !important; }
+  #swiss-state-summary .quote-text { font-size: var(--text-size) !important; }
+  .game-view-grid { grid-template-columns: minmax(250px, .65fr) minmax(0, 1.35fr); gap: 10px; }
+  #app-container { height: calc(100dvh - 126px); }
+  #start-screen .rules-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+  #start-screen .main-title { font-size: clamp(22px, 6dvh, 28px); }
+  #start-screen .rule-item { margin: 0; font-size: 12px; line-height: 1.2; gap: 6px; }
+  #start-screen .rule-item:first-child, #start-screen .rule-item:last-child { grid-column: 1 / -1; }
+  #result-screen:not(.hidden) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3px; align-content: center; padding: 5px; }
+  #result-screen > .result-icon-wrap { display: none; }
+  #result-screen .main-title { font-size: 20px !important; }
+  #result-screen > .insight-box, #btn-restart { grid-column: 1 / -1; }
+  .stats-grid { gap: 3px; }
+  #result-screen .stat-card, #result-screen .accuracy-container { padding: 4px; }
+  #result-screen .insight-box p { line-height: 1.22; }
+  .post-game-text-content { gap: 4px; zoom: .93; }
+  .post-game-text-content ol { line-height: 1.24; }
+  .post-game-text-content > .cta-btn { margin-top: 2px !important; }
+  .buffer-simulator-layout { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  #buffer-app-container, .buffer-feedback-card { padding: 5px; gap: 4px; }
+  #buffer-calendar { --slot-height: clamp(12px, (100dvh - 173px) / 16, 22px); }
+  .buffer-time-label { font-size: 9px; width: 36px; }
+  .buffer-placed-task { padding: 1px 4px; font-size: 10px; }
+  .buffer-placed-task svg { width: 12px; }
+  .buffer-timeline-item { line-height: 1.2; padding-block: 1px; margin-bottom: 1px; }
+  .buffer-feedback-card .buffer-feedback-conclusion { line-height: 1.15; }
+  .buffer-feedback-actions { margin-top: 5px; }
+  .buffer-feedback-actions button { padding-inline: 8px; }
+  .mobile-hint { font-size: 11px; padding: 3px; margin: 0; }
+  .swiss-monster-wrap { flex-basis: min(27%, 41dvh); }
+  .swiss-feedback { margin-top: 1px; padding: 4px 8px; }
+  .swiss-feedback-text { line-height: 1.25; }
+  #swiss-state-game > .rule-title-wrap { margin-bottom: 4px !important; }
+  .swiss-feedback-title { font-size: 21px; }
+  .swiss-feedback-header svg { width: 19px; height: 19px; }
+  .swiss-next { margin-top: 1px; justify-self: start; }
+  .bet-final-screen { grid-template-columns: minmax(150px, .52fr) minmax(0, 1.48fr); }
+  .bet-final-screen .bet-final-insight h3 { font-size: 21px; }
+  .bet-final-insight p { margin-bottom: 4px; }
+  .bet-final-screen > div:last-child { margin-top: 0 !important; }
+  #view-youtube .main-content-inner { grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); }
+  #view-youtube h3, #view-youtube h4 { font-size: 21px !important; margin-bottom: 2px !important; }
+  #view-youtube .article-p, #view-youtube .rule-bullet-list { margin-block: 2px !important; }
+}
+@media (orientation: landscape) and (max-width: 760px) {
+  #rule-state-intro, #view-refusals-list .main-content-inner, #view-youtube .main-content-inner,
+  #bet-intro-screen, #bet-final-screen, #swiss-state-intro, #swiss-state-summary,
+  .swiss-choices-wrap, .buffer-feedback-card, .post-game-text-content { zoom: .86; }
+  .game-view-grid { grid-template-columns: minmax(240px, .65fr) minmax(0, 1.35fr); }
+  #result-screen { zoom: .94; }
+  .post-game-text-content { zoom: .82; }
+  #result-screen .insight-box p { font-size: 11px; line-height: 1.2; }
+  #result-screen .main-title { font-size: 19px !important; }
+  #result-screen .hud-label { font-size: 8px; }
+  #result-screen .insight-header { margin-bottom: 0; }
+  #result-screen .insight-box { padding: 4px 5px; }
+  .bet-scenario-card { padding: 4px 6px; }
+  .bet-choice-btn { padding-block: 6px; }
+  .bet-choices { gap: 7px; }
+  #result-screen .btn { padding-block: 4px; }
+  #view-youtube .main-content-inner { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); }
+}
+@media (orientation: landscape) and (max-height: 350px) {
+  :root { --tab-height: 28px; --nav-height: 29px; --text-size: 12px; --page-gutter: 10px; }
+  .view-container:not(#view-dashboard, #view-rule-2-min, #view-youtube) .back-to-dashboard-btn {
+    float: right; margin: 5px 0 3px 8px;
+  }
+  .view-container:not(#view-dashboard, #view-rule-2-min, #view-youtube) .rule-title-wrap h1 { font-size: 24px; }
+  #rule-state-intro, #view-refusals-list .main-content-inner, #view-youtube .main-content-inner,
+  #bet-intro-screen, #bet-final-screen, #swiss-state-intro, #swiss-state-summary,
+  .swiss-choices-wrap, .buffer-feedback-card { zoom: .79; }
+  #buffer-state-intro .rule-top-grid { gap: 7px; }
+  #buffer-state-intro { zoom: .88; }
+  #buffer-state-intro > .cta-btn { margin-top: 3px !important; }
+  #buffer-calendar { --slot-height: 11px; }
+  #buffer-app-container { padding: 3px; gap: 2px; }
+  .buffer-simulator-layout { grid-template-columns: minmax(0, .77fr) minmax(0, 1.23fr); }
+  .buffer-feedback-card { zoom: .75; }
+  .buffer-feedback-card .buffer-feedback-conclusion { margin-top: 3px !important; }
+  .buffer-task { min-height: 28px; padding: 4px 7px; }
+  .swiss-game-layout, #swiss-state-game > .rule-title-wrap > p { margin-top: 0 !important; }
+  #swiss-state-game > .rule-title-wrap { clear: both; margin-bottom: 1px !important; }
+  .bet-scenario-text { font-size: 12px; margin-bottom: 4px; line-height: 1.2; }
+  .bet-choice-btn { font-size: 12px; padding: 4px 6px; }
+  .bet-result-header, .bet-result-text, .bet-result-conclusion { margin-bottom: 8px; }
+  .bet-result-text { font-size: 13px; line-height: 1.35; }
+  .bet-result-conclusion { padding: 8px; }
+  .bet-result-score { font-size: 18px; }
+  .pomo-modal-body { padding: 2px 0; }
+  .pomo-time-display { font-size: 32px; margin-block: 3px; }
+  .game-view-grid { grid-template-columns: minmax(240px, .68fr) minmax(0, 1.32fr); }
+  #view-rule-2-min .rule-title-wrap { margin-bottom: 0; }
+  #app-container { height: calc(100dvh - 108px); }
+  #start-screen { zoom: .9; }
+  #result-screen { zoom: .84; }
+  #result-screen:not(.hidden) { padding: 3px; gap: 2px; }
+  .post-game-text-content { zoom: .71; }
+  #game-screen {
+    display: grid; grid-template-columns: minmax(0, 1fr) 70px;
+    grid-template-rows: auto minmax(0, 1fr) auto; gap: 5px;
+  }
+  #game-header { grid-column: 1 / -1; }
+  #play-area { grid-row: 2 / 4; margin: 0; }
+  #zones-container { grid-column: 2; grid-template-columns: 1fr; height: auto; gap: 4px; }
+  .controls-tip { grid-column: 2; margin-top: 0; }
+}
+@media (orientation: portrait) {
+  :root { --tab-height: 44px; --nav-height: 48px; --text-size: 16px; --page-gutter: clamp(14px, 4vw, 36px); }
+  html, body { display: block; height: auto; min-height: 100%; overflow: clip visible; }
+  html { scrollbar-gutter: stable; }
+  html:has(.app-sidebar.open) { scrollbar-gutter: auto; }
+  .browser-window { height: auto; min-height: 100dvh; overflow: visible; display: block; animation: none; }
+  .tab-bar, .nav-bar { position: sticky; }
+  .tab-bar { top: 0; z-index: 202; padding-inline: 8px; }
+  .nav-bar { top: var(--tab-height); height: auto; min-height: var(--nav-height); gap: 6px; padding-inline: 8px; }
+  .nav-buttons { gap: 0; }
+  .address-bar { padding-inline: 8px; gap: 5px; font-size: 11px; }
+  #url-text { overflow: visible; white-space: normal; overflow-wrap: anywhere; }
+  .tab-bar, .chrome-tab { white-space: nowrap; }
+  .chrome-tab { padding-inline: 6px; gap: 4px; height: 40px; font-size: 12px !important; }
+  .window-controls { gap: 7px; }
+  .nav-icon-btn, .notes-close-btn { min-width: 44px; min-height: 44px; }
+  .burger-btn { display: flex; }
+  .app-viewport, .app-main-content { display: block; height: auto; overflow: clip visible; }
+  .app-sidebar {
+    position: fixed; inset: 0;
+    width: 100%; height: 100dvh; overflow-y: auto; z-index: 240;
+    visibility: hidden; transform: translateX(-100%); transition: transform .25s;
+    padding: max(14px, env(safe-area-inset-top)) var(--page-gutter) max(14px, env(safe-area-inset-bottom));
+    overscroll-behavior: contain;
+  }
+  .app-sidebar.open { visibility: visible; transform: none; }
+  html:has(.app-sidebar.open) { overflow: hidden; }
+  html:has(.app-sidebar.open) :is(.tab-bar, .nav-bar, .app-main-content) { visibility: hidden; }
+  .sidebar-close-btn { display: flex; margin-left: auto; }
+  .sidebar-menu-img { max-height: none; width: min(100%, 280px); }
+  .menu-item { min-height: 44px; }
+  #view-dashboard .main-content-inner { display: flex; flex-direction: column; gap: 18px; }
+  #view-dashboard .greeting-divider { margin: 0; }
+  .cards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .image-card { width: min(100%, 200px); justify-self: center; }
+  .clock-card { grid-column: 1 / -1; width: 100%; min-width: 0; height: 128px; }
+  .header-banner-img { height: auto; min-height: 34px; }
+  .rule-top-grid { flex-direction: column; align-items: stretch; }
+  .rule-top-grid > div:last-child { flex: auto; }
+  .wrapper-illustration { order: 1; }
+  .rule-illustration-img { width: min(100%, 360px); max-height: none; margin-inline: auto; }
+  .refusals-illustration { width: min(100%, 240px); margin: 0 auto 12px; }
+  .game-view-grid, .bet-final-screen, .buffer-simulator-layout { grid-template-columns: minmax(0, 1fr); }
+  #app-container { height: clamp(400px, 68dvh, 550px); }
+  .buffer-right-column { grid-row: 1; }
+  .buffer-right-column:has(#buffer-feedback-panel:not([style*="display: none"])) { grid-row: 2; }
+  .buffer-task, .cta-btn, .bet-choice-btn, .swiss-action-btn { min-height: 44px; }
+  #buffer-calendar { --slot-height: 36px; }
+  .mobile-hint { display: block; margin: 0; }
+  .swiss-game-layout { flex-direction: column; }
+  .swiss-monster-wrap { flex: none; width: min(100%, 390px); margin-inline: auto; }
+  .swiss-choices-wrap { width: 100%; }
+  #view-swiss-cheese .article-p, #view-swiss-cheese .quote-text, .swiss-feedback-text { overflow-wrap: anywhere; }
+  .bet-result-overlay, #notes-popup, #focus-popup { z-index: 230; }
+  #refusals-sim-overlay { padding-top: calc(var(--tab-height) + var(--nav-height) + 8px); }
+  #refusals-sim-overlay .notes-modal { max-height: calc(100dvh - var(--tab-height) - var(--nav-height) - 24px); }
+}
+@media (pointer: coarse) {
+  .mobile-hint { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chrome-tab.flashing-tab { animation: none; background: var(--accent-terracotta); color: white; }
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 </style>
@@ -492,7 +858,7 @@ body, html { overflow: auto; }
 </svg>
 Планер
 </button>
-<button class="chrome-tab" data-tab="messenger" id="tab-messenger">
+<button class="chrome-tab" data-tab="messenger" id="tab-messenger" hidden>
 <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 <line x1="8" y1="9" x2="16" y2="9"></line>
@@ -516,7 +882,7 @@ body, html { overflow: auto; }
 </div>
 <div class="nav-bar">
 <div class="nav-buttons">
-<button class="nav-icon-btn burger-btn" id="burger-btn" title="Открыть меню">
+<button class="nav-icon-btn burger-btn" id="burger-btn" title="Открыть меню" aria-controls="app-sidebar" aria-expanded="false">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <line x1="3" y1="12" x2="21" y2="12"></line>
 <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -548,6 +914,9 @@ body, html { overflow: auto; }
 <h3 class="font-handwriting">Планер</h3>
 <span>workspace.ru</span>
 </div>
+<button class="nav-icon-btn sidebar-close-btn" id="sidebar-close-btn" type="button" aria-label="Закрыть меню">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+</button>
 </div>
 <nav class="sidebar-menu">
 <button class="menu-item active" data-target="dashboard">
@@ -624,12 +993,12 @@ body, html { overflow: auto; }
 </div>
 </div>
 <div class="cards-grid">
-<div class="image-card" id="card-notes">
+<button class="image-card" id="card-notes" type="button" style="border: 0;">
 <img src="brain-dump.png" alt="Освободи голову" class="card-interactive-img">
-</div>
-<div class="image-card" id="card-focus">
+</button>
+<button class="image-card" id="card-focus" type="button" style="border: 0;">
 <img src="focus-hub.png" alt="Держи фокус" class="card-interactive-img">
-</div>
+</button>
 <div class="clock-card">
 <span class="clock-label">ТЕКУЩЕЕ ВРЕМЯ</span>
 <div class="flip-display">
@@ -658,12 +1027,12 @@ body, html { overflow: auto; }
 </div>
 <div id="rule-state-intro">
 <div class="rule-top-grid">
+<div class="wrapper-illustration">
+<img src="wrapper.png" alt="Фантик от конфеты" class="rule-illustration-img">
+</div>
 <div>
 <p class="article-p">Представьте, что вы наслаждаетесь конфетами. Вы можете сразу выбросить фантики в урну — это займет пару секунд. А можете положить их на стол, достать блокнот, записать: «выбросить фантики в 15:00», поставить напоминание в телефоне, а потом в 15:00 отвлечься от дел и пойти к урне.<br>Звучит как абсурд, правда?</p>
 <p class="article-p" style="margin-bottom: 0;">Но с мелкими рабочими задачами мы часто поступаем именно так. Сложить документ в папку, отправить коллеге ссылку или подтвердить бронь встречи — работы здесь буквально на пару минут.</p>
-</div>
-<div>
-<img src="wrapper.png" alt="Фантик от конфеты" class="rule-illustration-img">
 </div>
 </div>
 <p class="article-p">Когда появляется такое микродело, у нас есть два пути:</p>
@@ -742,7 +1111,7 @@ body, html { overflow: auto; }
 </div>
 </div>
 <div class="post-game-text-content" id="post-game-text" style="display: none;">
-<p class="article-p" style="font-size: 16px;">Правило двух минут — отличный инструмент. Но, как и любой инструмент, применять его стоит с умом. Вот три простых совета:</p>
+<p class="article-p">Правило двух минут — отличный инструмент. Но, как и любой инструмент, применять его стоит с умом. Вот три простых совета:</p>
 <ol>
 <li><b>Учитывайте свой темп</b><br>Две минуты — цифра условная, у каждого свой ритм. Кому-то удобнее заносить в список даже 30-секундные задачи, а кто-то легко делает на лету дела и по 5 минут. Понаблюдайте за собой и найдите тот объём задач, который не сбивает ваш рабочий настрой.</li>
 <li><b>Не попадайтесь в ловушку мелких дел</b><br>Если весь день выполнять только двухминутные задачи, создастся иллюзия бурной работы. Но в конце дня может оказаться, что к главным целям вы так и не притронулись. Мелочи не должны заменять собой важную работу.</li>
@@ -798,13 +1167,10 @@ body, html { overflow: auto; }
 </div>
 <div id="bet-final-screen" style="display: none;">
 <div class="bet-game-container bet-final-screen">
-<div class="bet-scenario-card">
-<h2 class="bet-scenario-title" style="text-align: center;">Игра окончена</h2>
-<div class="bet-final-score">
-<span id="bet-final-score-value">0</span>
-<span>из 7</span>
-</div>
-<p class="article-p" style="text-align: center; margin-bottom: 0;">баллов за 3 дня</p>
+<div class="bet-final-result">
+<h2>Игра закончена</h2>
+<p id="bet-final-score-value">0 баллов</p>
+<p>из семи</p>
 </div>
 <div class="bet-final-insight">
 <h3>В чём главная фишка этого упражнения?</h3>
@@ -853,6 +1219,7 @@ body, html { overflow: auto; }
 <h1>Список отказов</h1>
 <div class="rule-title-underline"></div>
 </div>
+<img src="refusals.png" alt="" class="refusals-illustration" width="1536" height="1024">
 <p class="article-p" style="font-weight: 700; color: var(--accent-sage);">Как успевать главное? Решить, чего вы делать НЕ будете</p>
 <p class="article-p">Сколько вкладок у вас сейчас открыто в браузере? Сколько чатов параллельно разрываются от сообщений?</p>
 <p class="article-p">Обычно тайм-менеджмент учит нас: записывайте всё, что планируете сделать. В итоге мы получаем бесконечный список задач, который только множит тревогу, а в течение дня судорожно переключаемся между ними, пытаясь успеть всё. Давайте поменяем правила.</p>
@@ -878,23 +1245,19 @@ body, html { overflow: auto; }
 </div>
 <div id="buffer-state-intro">
 <div class="rule-top-grid">
-<div>
+<div class="buffer-intro-copy">
 <p class="article-p">Представьте: день расписан минута в минуту. Красота, ни одного пробела! А потом клиент опаздывает на 10 минут, задача затягивается, коллега задаёт «быстрый» вопрос на полчаса — и всё летит кувырком.</p>
 <p class="article-p">Секрет продуктивности не в том, чтобы планировать больше. А в том, чтобы оставлять <b>буферные зоны</b> — 10–15 минут пустоты между задачами. Это не лень и не расточительство. Это ваша подушка безопасности.</p>
-</div>
-<div>
-<div class="quote-card" style="height: 100%; display: flex; align-items: center; justify-content: center; background: var(--sidebar-cream);">
-<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--border-sage)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;">
-<path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="quote-card" style="margin: 24px 0; border-color: var(--accent-sage);">
+<div class="quote-card buffer-air-rule">
 <span class="quote-label">ПРАВИЛО ВОЗДУХА</span>
 <div class="quote-content">
 <div class="quote-bar"></div>
 <p class="quote-text font-serif">Между любыми двумя задачами должно быть минимум 15 минут «воздуха». Это время на переключение и форс-мажоры.</p>
+</div>
+</div>
+</div>
+<div class="buffer-intro-art">
+<img src="buffer-calendar.png" alt="" class="rule-illustration-img">
 </div>
 </div>
 <button class="cta-btn" id="btn-start-buffer-sim" style="margin-top: 10px;">Попробовать в симуляторе</button>
@@ -905,8 +1268,6 @@ body, html { overflow: auto; }
 <div class="buffer-simulator-layout">
 <div class="buffer-left-column">
 <div id="buffer-app-container">
-<div style="text-align: center;">
-</div>
 <div class="mobile-hint" id="buffer-mobile-hint">Нажмите на задачу, затем на слот в календаре. Нажмите на задачу в календаре, чтобы вернуть её.</div>
 <div id="buffer-calendar"></div>
 <button class="cta-btn" id="btn-buffer-check" disabled style="width: 100%; display: none;">Проверить расписание</button>
@@ -917,9 +1278,9 @@ body, html { overflow: auto; }
 <p class="article-p">Перетащите 4 задачи в календарь, оставив между ними буферные зоны по 15 минут.</p>
 
 <div id="buffer-task-panel"></div>
+<div id="buffer-feedback-panel" style="display: none;" tabindex="-1"></div>
 </div>
 </div>
-<div id="buffer-feedback-panel" style="display: none; animation: fadeIn 0.5s var(--transition-cozy) forwards; margin-top: 24px;"></div>
 </div>
 
 <div id="buffer-state-summary" style="display: none;">
@@ -970,15 +1331,9 @@ body, html { overflow: auto; }
 <div class="swiss-monster-wrap">
 <div class="swiss-monster-container">
 <img src="monster.png" alt="Монстр-задача">
-<div class="swiss-holes-overlay">
-<div class="swiss-hole swiss-hole-1" id="swiss-hole-1"></div>
-<div class="swiss-hole swiss-hole-2" id="swiss-hole-2"></div>
-<div class="swiss-hole swiss-hole-3" id="swiss-hole-3"></div>
-<div class="swiss-hole swiss-hole-4" id="swiss-hole-4"></div>
 </div>
 <div class="swiss-progress-badge">
 Дырок сделано: <span id="swiss-holes-count">0</span> / 4
-</div>
 </div>
 </div>
 <div class="swiss-choices-wrap">
@@ -991,7 +1346,7 @@ body, html { overflow: auto; }
 Написать три случайных заголовка для разделов (каких угодно)
 </button>
 <button class="swiss-action-btn" data-action="full-report" data-correct="false">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M8 17h8M9 14v-2m3 2v-3m3 3v-1"/></svg>
 Собрать силу воли и написать весь отчёт за раз
 </button>
 <button class="swiss-action-btn" data-action="make-coffee" data-correct="true">
@@ -1006,7 +1361,8 @@ body, html { overflow: auto; }
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
 Написать первое предложение, которое придёт в голову (даже бредовое)
 </button>
-<div id="swiss-feedback" style="display: none;"></div>
+<div id="swiss-feedback" style="display: none;" aria-live="polite"></div>
+<button class="cta-btn swiss-next" id="btn-swiss-next" type="button" hidden>Продолжить</button>
 </div>
 </div>
 </div>
@@ -1063,21 +1419,21 @@ body, html { overflow: auto; }
 <h1>Видосики</h1>
 <div class="rule-title-underline"></div>
 </div>
-<div style="width: 100%; max-width: 640px; aspect-ratio: 16/9; background-color: #2C302B; border-radius: 20px; margin-bottom: 24px; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; border: 2px solid var(--border-sage);">
+<div class="course-video" style="width: 100%; max-width: 640px; aspect-ratio: 16/9; background-color: #2C302B; border-radius: 20px; margin-bottom: 24px; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; border: 2px solid var(--border-sage);">
 <video id="youtube-video" style="width: 100%; height: 100%; object-fit: cover; display: block;" playsinline>
 <source src="video.mp4" type="video/mp4">
 </video>
-<div id="video-play-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(44, 48, 43, 0.6); cursor: pointer; transition: opacity 0.3s;">
-<div style="width: 72px; height: 72px; border-radius: 50%; background-color: var(--accent-terracotta); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(195, 106, 91, 0.4); transition: transform 0.2s;">
-<svg id="play-icon" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF" style="margin-left: 4px;">
+<button id="video-play-overlay" class="video-control" type="button" aria-label="Воспроизвести видео">
+<span class="video-control-icon" aria-hidden="true">
+<svg class="play-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
 <polygon points="5 3 19 12 5 21 5 3"></polygon>
 </svg>
-<svg id="pause-icon" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF" style="display: none;">
+<svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 <rect x="6" y="4" width="4" height="16"></rect>
 <rect x="14" y="4" width="4" height="16"></rect>
 </svg>
-</div>
-</div>
+</span>
+</button>
 </div>
 <div>
 <h3 style="font-family: 'Caveat', cursive; font-size: 26px; color: var(--accent-terracotta); margin-bottom: 5px;">Осторожно, тайм-киллеры!</h3>
@@ -1137,7 +1493,7 @@ body, html { overflow: auto; }
 <p class="article-p" id="refusals-feedback-text" style="font-size: 15px; line-height: 1.5; margin-bottom: 16px;"></p>
 <div style="display: flex; gap: 10px; justify-content: flex-end;">
 <button class="pomo-btn secondary" id="refusals-retry-btn" style="display: none;">Выбрать другое действие</button>
-<button class="cta-btn" id="refusals-next-btn" style="display: none;">Дальше</button>
+<button class="cta-btn" id="refusals-next-btn" type="button" hidden>Дальше</button>
 </div>
 </div>
 </div>
@@ -1152,7 +1508,7 @@ body, html { overflow: auto; }
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-sage)" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
 Освободи голову
 </div>
-<button class="notes-close-btn" id="close-notes-btn"></button>
+<button class="notes-close-btn" id="close-notes-btn" aria-label="Закрыть">✕</button>
 </div>
 <textarea class="notes-textarea font-serif" id="notes-area" placeholder="Пишите сюда всё подряд: мысли, задачи, тревоги, идеи... Выгрузите всё из головы!"></textarea>
 <div class="notes-footer">
@@ -1179,7 +1535,7 @@ body, html { overflow: auto; }
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-sage)" stroke-width="2"><circle cx="12" cy="13" r="8"></circle><path d="M12 9v4l2 2"></path><path d="M5 3L2 6"></path><path d="M22 6l-3-3"></path><path d="M12 2v3"></path></svg>
 Таймер фокуса (помодоро)
 </div>
-<button class="notes-close-btn" id="close-focus-btn"></button>
+<button class="notes-close-btn" id="close-focus-btn" aria-label="Закрыть">✕</button>
 </div>
 <div class="pomo-modal-body">
 <h4 class="font-serif" id="focus-modal-title" style="font-size: 26px; color: var(--accent-sage); font-weight: 500;">Держи фокус</h4>
@@ -1198,35 +1554,35 @@ body, html { overflow: auto; }
 </div>
 </div>
 </div>
+<div id="course-exit" class="course-exit" hidden><h1 class="page-title">Поздравляем! Вы успешно завершили курс!</h1></div>
 <script>
 let currentView = 'dashboard';
 let previousPlannerView = 'dashboard';
 let gameHasBeenPlayed = false;
 let workDayStarted = false;
-let workDayCompleted = false;
+const sectionOrder = ['rule-2-min', 'bet-of-the-day', 'refusals-list', 'buffer-zones', 'swiss-cheese'];
+const completedSections = new Set();
 const viewsContent = {
 'bet-of-the-day': { title: 'Вернуть контроль над днём', lead: 'Механика: Симулятор планирования задач с жесткими ограничениями фокуса.', body: 'Учимся ставить 1 главную задачу дня и не размениваться на второстепенную суету.', list: ['Сфокусироваться на главном вызове дня.', 'Исключить хаос мелких отвлечений.'] },
 'swiss-cheese': { title: 'Обезвредить пугающую задачу', lead: 'Механика: Метод швейцарского сыра.', body: 'Делаем микро-дырки в больших проектах, пока они не перестанут пугать.', list: ['Преодолеть первичный ступор.', 'Начать с 2-минутного действия.'] }
 };
-function switchView(viewId) {
-// Если уходим с вкладки "Видосики" — ставим видео на паузу и показываем кнопку Play
-if (currentView === 'youtube') {
-    const video = document.getElementById('youtube-video');
-    const overlay = document.getElementById('video-play-overlay');
-    if (video && !video.paused) {
-        video.pause();
-        // Показываем оверлей с кнопкой Play
-        if (overlay) {
-            overlay.style.display = 'flex';
-            setTimeout(() => { overlay.style.opacity = '1'; }, 10);
-        }
-    }
+function isDistractionView(viewId) {
+  return viewId === 'messenger' || viewId === 'youtube';
 }
-if (viewId !== 'messenger' && viewId !== 'youtube') previousPlannerView = viewId;
+
+function switchView(viewId) {
+if (viewId === currentView) {
+  closeMobileMenu();
+  return;
+}
+if (currentView === 'refusals-list') refusalsSimOverlay.classList.remove('active');
+const returningToPlanner = isDistractionView(currentView) && viewId === previousPlannerView;
+if (currentView === 'youtube') document.getElementById('youtube-video').pause();
+if (!isDistractionView(viewId)) previousPlannerView = viewId;
 currentView = viewId;
 const urlText = document.getElementById('url-text');
 if (urlText) urlText.textContent = viewId === 'dashboard' ? 'https://workspace.ru/my-planner' : `https://workspace.ru/${viewId}`;
-const activeTabId = (viewId === 'messenger' || viewId === 'youtube') ? viewId : 'dashboard';
+const activeTabId = isDistractionView(viewId) ? viewId : 'dashboard';
 document.querySelectorAll('.chrome-tab').forEach(tab => tab.classList.toggle('active', tab.getAttribute('data-tab') === activeTabId));
 document.querySelectorAll('.menu-item').forEach(item => item.classList.toggle('active', item.getAttribute('data-target') === viewId));
 const vDash = document.getElementById('view-dashboard');
@@ -1242,26 +1598,19 @@ const vPlace = document.getElementById('view-placeholder');
 if (viewId === 'dashboard' && vDash) vDash.classList.add('active');
 else if (viewId === 'rule-2-min' && vRule) {
 vRule.classList.add('active');
-const intro = document.getElementById('rule-state-intro');
-const playing = document.getElementById('rule-state-playing');
-const post = document.getElementById('post-game-text');
-if (!gameHasBeenPlayed && intro && playing && post) { intro.style.display = 'block'; playing.style.display = 'none'; post.style.display = 'none'; }
 }
 else if (viewId === 'bet-of-the-day' && vBet) {
 vBet.classList.add('active');
-resetBetGame();
+ if (!returningToPlanner && completedSections.has(viewId)) resetBetGame();
 }
 else if (viewId === 'refusals-list' && vRefusals) vRefusals.classList.add('active');
 else if (viewId === 'buffer-zones' && vBuffer) {
 vBuffer.classList.add('active');
-if (typeof window.resetBufferSim === 'function') window.resetBufferSim();
-document.getElementById('buffer-state-intro').style.display = 'block';
-document.getElementById('buffer-state-playing').style.display = 'none';
-document.getElementById('buffer-state-summary').style.display = 'none';
+ if (!returningToPlanner && completedSections.has(viewId) && bufferState.passed !== false) resetBufferModule();
 }
 else if (viewId === 'swiss-cheese' && vSwiss) {
 vSwiss.classList.add('active');
-resetSwissGame();
+ if (!returningToPlanner && completedSections.has(viewId)) resetSwissGame();
 }
 else if (viewId === 'messenger' && vMessenger) vMessenger.classList.add('active');
 else if (viewId === 'youtube' && vYoutube) vYoutube.classList.add('active');
@@ -1277,9 +1626,14 @@ listContainer.innerHTML = '';
 }
 vPlace.classList.add('active');
 }
+if (viewId === 'refusals-list' && refusalsStepOpen) refusalsSimOverlay.classList.add('active');
 closeMobileMenu();
+window.scrollTo(0, 0);
 }
-document.querySelectorAll('.chrome-tab').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); const tabId = btn.getAttribute('data-tab'); if (tabId) switchView(tabId); }));
+document.querySelectorAll('.chrome-tab').forEach(button => button.addEventListener('click', () => {
+  const tabId = button.dataset.tab;
+  switchView(tabId === 'dashboard' && isDistractionView(currentView) ? previousPlannerView : tabId);
+}));
 document.querySelectorAll('.menu-item').forEach(item => item.addEventListener('click', (e) => { e.preventDefault(); const targetId = item.getAttribute('data-target'); if (targetId) switchView(targetId); }));
 document.getElementById('home-nav-btn').addEventListener('click', () => switchView('dashboard'));
 document.querySelectorAll('.btn-back-to-dash').forEach(btn => btn.addEventListener('click', () => switchView('dashboard')));
@@ -1291,10 +1645,26 @@ setItem: function(key, value) { try { localStorage.setItem(key, value); } catch 
 const appSidebar = document.getElementById('app-sidebar');
 const sidebarBackdrop = document.getElementById('sidebar-backdrop');
 const burgerBtn = document.getElementById('burger-btn');
-function toggleMobileMenu() { if (appSidebar) appSidebar.classList.toggle('open'); if (sidebarBackdrop) sidebarBackdrop.classList.toggle('active'); }
-function closeMobileMenu() { if (appSidebar) appSidebar.classList.remove('open'); if (sidebarBackdrop) sidebarBackdrop.classList.remove('active'); }
+const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
+function toggleMobileMenu() {
+  const open = appSidebar.classList.toggle('open');
+  sidebarBackdrop.classList.toggle('active', open);
+  burgerBtn.setAttribute('aria-expanded', String(open));
+  if (open && sidebarCloseBtn.getClientRects().length) sidebarCloseBtn.focus();
+}
+function closeMobileMenu(restoreFocus = false) {
+  const wasOpen = appSidebar.classList.contains('open');
+  appSidebar.classList.remove('open');
+  sidebarBackdrop.classList.remove('active');
+  burgerBtn.setAttribute('aria-expanded', 'false');
+  if (wasOpen && restoreFocus) burgerBtn.focus();
+}
 if (burgerBtn) burgerBtn.addEventListener('click', toggleMobileMenu);
-if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeMobileMenu);
+sidebarBackdrop.addEventListener('click', () => closeMobileMenu(true));
+sidebarCloseBtn.addEventListener('click', () => closeMobileMenu(true));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && appSidebar.classList.contains('open')) closeMobileMenu(true);
+});
 const btnStartRefusalsSim = document.getElementById('btn-start-refusals-sim');
 const refusalsSimOverlay = document.getElementById('refusals-sim-overlay');
 const closeRefusalsSimBtn = document.getElementById('close-refusals-sim-btn');
@@ -1305,51 +1675,71 @@ const refusalsFeedbackBadge = document.getElementById('refusals-feedback-badge')
 const refusalsFeedbackText = document.getElementById('refusals-feedback-text');
 const refusalsRetryBtn = document.getElementById('refusals-retry-btn');
 const refusalsNextBtn = document.getElementById('refusals-next-btn');
+let refusalsStepOpen = false;
+let refusalsPassed = false;
 if (btnStartRefusalsSim) {
 btnStartRefusalsSim.addEventListener('click', () => {
-if (tabMessenger) tabMessenger.classList.add('flashing-tab');
+if (tabMessenger) {
+  tabMessenger.hidden = false;
+  tabMessenger.classList.add('flashing-tab');
+}
 btnStartRefusalsSim.disabled = true;
 btnStartRefusalsSim.innerText = 'Загрузка симуляции...';
 setTimeout(() => {
 btnStartRefusalsSim.disabled = false;
 btnStartRefusalsSim.innerText = 'Начать симуляцию';
+refusalsPassed = false;
+closeRefusalsSimBtn.hidden = false;
 if (refusalsQuestionStep) refusalsQuestionStep.style.display = 'block';
 if (refusalsFeedbackStep) refusalsFeedbackStep.style.display = 'none';
-if (refusalsSimOverlay) refusalsSimOverlay.classList.add('active');
+refusalsStepOpen = true;
+if (currentView === 'refusals-list') refusalsSimOverlay.classList.add('active');
 }, 2000);
 });
 }
-function closeRefusalsSim() {
+function closeRefusalsSim(nextView) {
+refusalsStepOpen = false;
 if (refusalsSimOverlay) refusalsSimOverlay.classList.remove('active');
 if (tabMessenger) tabMessenger.classList.remove('flashing-tab');
+if (refusalsPassed) {
+  refusalsPassed = false;
+  completeSection('refusals-list', nextView);
 }
-if (closeRefusalsSimBtn) closeRefusalsSimBtn.addEventListener('click', closeRefusalsSim);
+}
+closeRefusalsSimBtn.addEventListener('click', () => {
+  if (!closeRefusalsSimBtn.hidden) closeRefusalsSim('refusals-list');
+});
+refusalsNextBtn.addEventListener('click', () => {
+  if (refusalsPassed) closeRefusalsSim();
+});
 document.querySelectorAll('.refusal-opt-btn').forEach(btn => {
 btn.addEventListener('click', (e) => {
 const opt = e.currentTarget.getAttribute('data-opt');
+refusalsPassed = opt === '2';
+closeRefusalsSimBtn.hidden = !refusalsPassed;
+refusalsRetryBtn.style.display = refusalsPassed ? 'none' : 'inline-flex';
+refusalsNextBtn.hidden = !refusalsPassed;
 if (refusalsQuestionStep) refusalsQuestionStep.style.display = 'none';
 if (refusalsFeedbackStep) refusalsFeedbackStep.style.display = 'block';
+(refusalsPassed ? refusalsNextBtn : refusalsRetryBtn).focus({ preventScroll: true });
 if (opt === '1') {
 if (refusalsFeedbackBadge) { refusalsFeedbackBadge.style.backgroundColor = 'rgba(195, 106, 91, 0.15)'; refusalsFeedbackBadge.style.border = '1px solid var(--accent-terracotta)'; refusalsFeedbackBadge.style.color = 'var(--accent-terracotta)'; refusalsFeedbackBadge.textContent = 'Неверный выбор'; }
 if (refusalsFeedbackText) refusalsFeedbackText.textContent = 'Это ловушка. Вы заглянете в чат, и фокус будет потерян. Чтобы вернуть прежнюю концентрацию, мозгу понадобится около 10 минут.';
-if (refusalsRetryBtn) refusalsRetryBtn.style.display = 'inline-flex';
-if (refusalsNextBtn) refusalsNextBtn.style.display = 'none';
 } else if (opt === '2') {
 if (tabMessenger) tabMessenger.classList.remove('flashing-tab');
 if (refusalsFeedbackBadge) { refusalsFeedbackBadge.style.backgroundColor = 'rgba(95, 111, 82, 0.15)'; refusalsFeedbackBadge.style.border = '1px solid var(--accent-sage)'; refusalsFeedbackBadge.style.color = 'var(--accent-sage)'; refusalsFeedbackBadge.textContent = 'Верный выбор!'; }
 if (refusalsFeedbackText) refusalsFeedbackText.textContent = 'Отлично! Вы убрали раздражитель с глаз долой. Мозг спокоен, ведь реагировать не на что.';
-if (refusalsRetryBtn) refusalsRetryBtn.style.display = 'none';
-if (refusalsNextBtn) refusalsNextBtn.style.display = 'inline-flex';
 } else if (opt === '3') {
 if (refusalsFeedbackBadge) { refusalsFeedbackBadge.style.backgroundColor = 'rgba(195, 106, 91, 0.15)'; refusalsFeedbackBadge.style.border = '1px solid var(--accent-terracotta)'; refusalsFeedbackBadge.style.color = 'var(--accent-terracotta)'; refusalsFeedbackBadge.textContent = 'Неверный выбор'; }
 if (refusalsFeedbackText) refusalsFeedbackText.textContent = 'Вкладка продолжает мигать перед глазами. Мозг всё равно будет отвлекаться на этот сигнал.';
-if (refusalsRetryBtn) refusalsRetryBtn.style.display = 'inline-flex';
-if (refusalsNextBtn) refusalsNextBtn.style.display = 'none';
 }
 });
 });
-if (refusalsRetryBtn) refusalsRetryBtn.addEventListener('click', () => { if (refusalsQuestionStep) refusalsQuestionStep.style.display = 'block'; if (refusalsFeedbackStep) refusalsFeedbackStep.style.display = 'none'; });
-if (refusalsNextBtn) refusalsNextBtn.addEventListener('click', () => { closeRefusalsSim(); const menuRefusals = document.getElementById('menu-refusals-list'); if (menuRefusals) menuRefusals.classList.add('completed'); switchView('buffer-zones'); });
+refusalsRetryBtn.addEventListener('click', () => {
+  refusalsQuestionStep.style.display = 'block';
+  refusalsFeedbackStep.style.display = 'none';
+  refusalsQuestionStep.querySelector('.refusal-opt-btn').focus({ preventScroll: true });
+});
 const defaultNotes = `Чувствуете, что голова переполнена? Запишите сюда всё, что прямо сейчас крутится в мыслях и мешает сосредоточиться:
 • мелкие дела и задачи, о которых боитесь забыть
 • тревоги, мысли «а что, если...» и переживания
@@ -1409,7 +1799,7 @@ setInterval(updateClock, 1000); updateClock();
 const btnStartGamePractice = document.getElementById('btn-start-game-practice');
 const btnCompleteRuleModule = document.getElementById('btn-complete-rule-module');
 if (btnStartGamePractice) btnStartGamePractice.addEventListener('click', () => { const intro = document.getElementById('rule-state-intro'); const playing = document.getElementById('rule-state-playing'); const post = document.getElementById('post-game-text'); if (intro) intro.style.display = 'none'; if (playing) playing.style.display = 'block'; if (!gameHasBeenPlayed && post) post.style.display = 'none'; });
-if (btnCompleteRuleModule) btnCompleteRuleModule.addEventListener('click', () => { const menuRule = document.getElementById('menu-rule-2-min'); if (menuRule) menuRule.classList.add('completed'); switchView('bet-of-the-day'); });
+if (btnCompleteRuleModule) btnCompleteRuleModule.addEventListener('click', () => completeSection('rule-2-min'));
 const tasks = [
 { text: "Ответить на короткое сообщение в чате", correct: "do", explanation: "Это займёт 30 секунд. Не забивайте этим голову, сделайте сразу!" },
 { text: "Забронировать переговорку на завтра", correct: "do", explanation: "Дело пары минут, проще закрыть задачу сразу." },
@@ -1427,7 +1817,7 @@ const tasks = [
 { text: "Разобрать завалы на рабочем столе ПК", correct: "list", explanation: "Запишите это как отдельную задачу." },
 { text: "Придумать тему для корпоратива", correct: "list", explanation: "Крутая идея за две минуты не рождается." }
 ];
-const CONFIG = { initialSpeed: 1.6, speedIncrease: 0.12, totalCards: 15, timeLimit: 60, cardWidth: 220, cardHeight: 100 };
+const CONFIG = { initialSpeed: 1.6, speedIncrease: 0.12, totalCards: 15, timeLimit: 60, cardHeight: 100 };
 let state = { score: 0, currentCardIndex: 0, correctCount: 0, combo: 0, maxCombo: 0, timeLeft: CONFIG.timeLimit, speed: CONFIG.initialSpeed, shuffledTasks: [], gameActive: false, isPaused: false, timerInterval: null, currentCard: null, dragStart: { x: 0, y: 0 }, isDragging: false };
 const screens = { start: document.getElementById('start-screen'), game: document.getElementById('game-screen'), result: document.getElementById('result-screen') };
 const playArea = document.getElementById('play-area');
@@ -1435,18 +1825,19 @@ const hud = { score: document.getElementById('hud-score'), progress: document.ge
 const zones = { left: document.getElementById('zone-left'), right: document.getElementById('zone-right') };
 const overlay = document.getElementById('feedback-overlay');
 const feedback = { iconWrap: document.getElementById('feedback-icon-wrap'), title: document.getElementById('feedback-title'), task: document.getElementById('feedback-task'), explain: document.getElementById('feedback-explain') };
-const SVG_ICONS = { timeout: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg>`, error: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="7" x2="12" y2="13"></line><circle cx="12" cy="17" r="1.2" fill="currentColor"></circle></svg>` };
+const feedbackWarningIcon = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="17" r="1.25" fill="currentColor" stroke="none"/></svg>`;
 function showScreen(name) { Object.keys(screens).forEach(key => { if (screens[key]) { if (key === name) screens[key].classList.remove('hidden'); else screens[key].classList.add('hidden'); } }); }
 function shuffle(array) { const arr = [...array]; for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
 function initGame() {
 if (document.activeElement) document.activeElement.blur();
 state.score = 0; state.currentCardIndex = 0; state.correctCount = 0; state.combo = 0; state.maxCombo = 0;
 state.timeLeft = CONFIG.timeLimit; state.speed = CONFIG.initialSpeed; state.shuffledTasks = shuffle(tasks);
-state.gameActive = true; state.isPaused = false; state.currentCard = null;
+clearCard();
+state.gameActive = true; state.isPaused = false;
 if (playArea) playArea.innerHTML = '<div id="progress-timeline"></div>';
 updateHUD(); showScreen('game'); spawnCard();
 clearInterval(state.timerInterval);
-state.timerInterval = setInterval(() => { if (state.gameActive && !state.isPaused) { state.timeLeft--; if (hud.timer) hud.timer.textContent = state.timeLeft; if (state.timeLeft <= 0) endGame(); } }, 1000);
+state.timerInterval = setInterval(() => { if (currentView === 'rule-2-min' && state.gameActive && !state.isPaused) { state.timeLeft--; if (hud.timer) hud.timer.textContent = state.timeLeft; if (state.timeLeft <= 0) endGame(); } }, 1000);
 requestAnimationFrame(gameLoop);
 }
 function spawnCard() {
@@ -1458,7 +1849,7 @@ const cardEl = document.createElement('div');
 cardEl.className = 'task-card'; cardEl.innerText = taskData.text;
 if (playArea) playArea.appendChild(cardEl);
 const areaWidth = (playArea ? playArea.clientWidth : 360) || 360;
-const startX = (areaWidth - CONFIG.cardWidth) / 2;
+const startX = (areaWidth - cardEl.offsetWidth) / 2;
 state.currentCard = { element: cardEl, taskData: taskData, x: startX, y: -CONFIG.cardHeight, targetX: startX, lane: 'center' };
 cardEl.style.transform = `translate3d(${startX}px, ${-CONFIG.cardHeight}px, 0)`;
 const timeline = document.getElementById('progress-timeline');
@@ -1466,13 +1857,15 @@ if (timeline) timeline.style.width = `${(state.currentCardIndex / CONFIG.totalCa
 setupDragAndDrop(cardEl); updateHUD();
 }
 function setupDragAndDrop(el) {
+const pointerEvents = new AbortController();
+state.currentCard.pointerEvents = pointerEvents;
 const onPointerDown = (e) => { if (state.isPaused || !state.currentCard) return; state.isDragging = true; state.dragStart.x = e.clientX || 0; state.dragStart.y = e.clientY || 0; el.style.transition = 'none'; };
 const onPointerMove = (e) => {
 if (!state.isDragging || !state.currentCard) return;
 const currentX = e.clientX || 0; const currentY = e.clientY || 0;
 const dx = currentX - state.dragStart.x; const dy = currentY - state.dragStart.y;
 const areaWidth = (playArea ? playArea.clientWidth : 360) || 360;
-const defaultX = (areaWidth - CONFIG.cardWidth) / 2;
+const defaultX = (areaWidth - el.offsetWidth) / 2;
 state.currentCard.x = defaultX + dx;
 if (dy > 0) state.currentCard.y += dy * 0.08;
 const rotation = dx * 0.08;
@@ -1485,17 +1878,17 @@ const onPointerUp = () => {
 if (!state.isDragging) return;
 state.isDragging = false;
 const areaWidth = (playArea ? playArea.clientWidth : 360) || 360;
-const defaultX = (areaWidth - CONFIG.cardWidth) / 2;
+const defaultX = (areaWidth - el.offsetWidth) / 2;
 if (state.currentCard && state.currentCard.lane !== 'center') instantDrop();
 else if (state.currentCard) { state.currentCard.targetX = defaultX; el.style.transition = 'transform 0.2s ease-out'; }
 };
-el.addEventListener('pointerdown', onPointerDown);
-window.addEventListener('pointermove', onPointerMove);
-window.addEventListener('pointerup', onPointerUp);
+el.addEventListener('pointerdown', onPointerDown, { signal: pointerEvents.signal });
+window.addEventListener('pointermove', onPointerMove, { signal: pointerEvents.signal });
+window.addEventListener('pointerup', onPointerUp, { signal: pointerEvents.signal });
 }
 function gameLoop() {
 if (!state.gameActive) return;
-if (!state.isPaused && state.currentCard) {
+if (currentView === 'rule-2-min' && !state.isPaused && state.currentCard) {
 if (!state.isDragging) { state.currentCard.x += (state.currentCard.targetX - state.currentCard.x) * 0.2; state.currentCard.y += state.speed; updateCardPosition(); }
 const bottomLimit = (playArea ? playArea.clientHeight : 400) - CONFIG.cardHeight - 4;
 if (state.currentCard.y >= bottomLimit) evaluateCard();
@@ -1506,7 +1899,7 @@ function updateCardPosition() { if (state.currentCard && !state.isDragging && st
 function moveLane(dir) {
 if (!state.gameActive || state.isPaused || !state.currentCard) return;
 const areaWidth = (playArea ? playArea.clientWidth : 360) || 360;
-const leftX = 10; const rightX = areaWidth - CONFIG.cardWidth - 10;
+const leftX = 10; const rightX = areaWidth - state.currentCard.element.offsetWidth - 10;
 if (dir === 'left') { state.currentCard.targetX = leftX; state.currentCard.lane = 'left'; highlightZone('left'); }
 else if (dir === 'right') { state.currentCard.targetX = rightX; state.currentCard.lane = 'right'; highlightZone('right'); }
 }
@@ -1522,7 +1915,7 @@ else if (e.key === 'Enter') { e.preventDefault(); if (state.isPaused) closeFeedb
 function evaluateCard() {
 const card = state.currentCard; if (!card) return;
 const playerChoice = card.lane === 'left' ? 'do' : (card.lane === 'right' ? 'list' : null);
-if (!playerChoice) { showFeedback("timeout", "Время истекло", card.taskData.text, "Вы не успеваете распределять задачи! Решайте быстрее."); clearCard(); return; }
+if (!playerChoice) { showFeedback("Время истекло", card.taskData.text, "Вы не успеваете распределять задачи! Решайте быстрее."); clearCard(); return; }
 const isCorrect = playerChoice === card.taskData.correct;
 if (isCorrect) {
 state.correctCount++; state.combo++;
@@ -1531,17 +1924,25 @@ const multiplier = state.combo >= 3 ? 2 : 1;
 state.score += 10 * multiplier;
 const zone = card.lane === 'left' ? zones.left : zones.right;
 if (zone) { zone.classList.add('active'); setTimeout(() => zone.classList.remove('active'), 150); }
-showFloatingScore(10 * multiplier, card.x + CONFIG.cardWidth / 2, card.y);
+showFloatingScore(10 * multiplier, card.x + card.element.offsetWidth / 2, card.y);
 clearCard(); state.currentCardIndex++; spawnCard();
 } else {
 state.combo = 0;
 const container = document.getElementById('app-container');
 if (container) { container.classList.add('shake'); setTimeout(() => container.classList.remove('shake'), 400); }
-showFeedback("error", "Не совсем так", card.taskData.text, card.taskData.explanation);
+showFeedback("Не совсем так", card.taskData.text, card.taskData.explanation);
 clearCard();
 }
 }
-function clearCard() { if (state.currentCard) { if (state.currentCard.element) state.currentCard.element.remove(); state.currentCard = null; } highlightZone(null); }
+function clearCard() {
+  if (state.currentCard) {
+    state.currentCard.pointerEvents?.abort();
+    state.currentCard.element.remove();
+    state.currentCard = null;
+  }
+  state.isDragging = false;
+  highlightZone(null);
+}
 function showFloatingScore(pts, x, y) {
 const el = document.createElement('div'); el.className = 'floating-score';
 const width = playArea ? playArea.clientWidth : 360;
@@ -1550,9 +1951,9 @@ if (state.combo >= 3) el.style.color = 'var(--accent-amber)';
 if (playArea) playArea.appendChild(el);
 setTimeout(() => el.remove(), 800);
 }
-function showFeedback(type, title, task, explanation) {
+function showFeedback(title, task, explanation) {
 state.isPaused = true;
-if (feedback.iconWrap) feedback.iconWrap.innerHTML = SVG_ICONS[type] || SVG_ICONS.error;
+if (feedback.iconWrap) feedback.iconWrap.innerHTML = feedbackWarningIcon;
 if (feedback.title) feedback.title.innerText = title;
 if (feedback.task) feedback.task.innerText = task;
 if (feedback.explain) feedback.explain.innerText = explanation;
@@ -1593,43 +1994,72 @@ const btnRestartGame = document.getElementById('btn-restart');
 if (btnStartGame) btnStartGame.addEventListener('click', initGame);
 if (btnRestartGame) btnRestartGame.addEventListener('click', initGame);
 const startDayBtn = document.getElementById('start-day-btn');
-if (startDayBtn) {
+const progressKey = 'eshe-uspeyu-course-progress';
+
+function getCourseProgress() {
+  return {
+    started: workDayStarted,
+    sections: sectionOrder.filter(section => completedSections.has(section)),
+    completed: completedSections.size === sectionOrder.length
+  };
+}
+
+function saveCourseProgress() {
+  const progress = getCourseProgress();
+  safeStorage.setItem(progressKey, JSON.stringify({ ...progress, requiresCorrectAnswers: true }));
+  document.dispatchEvent(new CustomEvent('course-progress', { detail: progress }));
+}
+
+try {
+  const savedProgress = JSON.parse(safeStorage.getItem(progressKey));
+  workDayStarted = savedProgress?.started === true;
+  if (Array.isArray(savedProgress?.sections)) {
+    for (const section of sectionOrder) {
+      const requiresVerification = section === 'refusals-list' || section === 'buffer-zones';
+      if (savedProgress.sections.includes(section) && (!requiresVerification || savedProgress.requiresCorrectAnswers === true)) {
+        completedSections.add(section);
+      }
+    }
+  }
+} catch {
+  // A damaged local record starts a new attempt.
+}
+
 startDayBtn.addEventListener('click', () => {
-if (!workDayStarted) {
-workDayStarted = true;
-startDayBtn.innerHTML = '<span>Рабочий день идет</span>';
-startDayBtn.disabled = true;
-switchView('rule-2-min');
-} else if (workDayCompleted) {
-alert('Поздравляем! Вы успешно завершили курс!');
-}
+  const progress = getCourseProgress();
+  if (progress.completed) {
+    document.dispatchEvent(new CustomEvent('course-exit', { detail: progress }));
+    document.querySelector('.browser-window').hidden = true;
+    document.getElementById('course-exit').hidden = false;
+    window.scrollTo(0, 0);
+    if (window.opener) window.close();
+  } else if (!workDayStarted) {
+    workDayStarted = true;
+    updateStartDayButton();
+    saveCourseProgress();
+    switchView(sectionOrder[0]);
+  }
 });
+
+function completeSection(section, nextView = sectionOrder[sectionOrder.indexOf(section) + 1]) {
+  const isNewCompletion = !completedSections.has(section);
+  completedSections.add(section);
+  updateStartDayButton();
+  if (isNewCompletion) saveCourseProgress();
+  switchView(getCourseProgress().completed ? 'dashboard' : nextView || 'dashboard');
 }
-function checkAllSectionsCompleted() {
-const menuItems = document.querySelectorAll('.menu-item');
-let allCompleted = true;
-menuItems.forEach(item => {
-if (!item.classList.contains('completed') && item.getAttribute('data-target') !== 'dashboard') {
-allCompleted = false;
-}
-});
-return allCompleted;
-}
+
 function updateStartDayButton() {
-if (workDayStarted && !workDayCompleted) {
-const btn = document.getElementById('start-day-btn');
-if (btn) {
-btn.innerHTML = '<span>Рабочий день идет</span>';
-btn.disabled = true;
+  const { completed } = getCourseProgress();
+  sectionOrder.forEach(section => {
+    document.querySelector(`.menu-item[data-target="${section}"]`).classList.toggle('completed', completedSections.has(section));
+  });
+  startDayBtn.querySelector('span').textContent = completed
+    ? 'Завершить рабочий день'
+    : workDayStarted ? 'Рабочий день идет' : 'Начать рабочий день';
+  startDayBtn.disabled = workDayStarted && !completed;
 }
-} else if (workDayCompleted) {
-const btn = document.getElementById('start-day-btn');
-if (btn) {
-btn.innerHTML = '<span>Завершить рабочий день</span>';
-btn.disabled = false;
-}
-}
-}
+updateStartDayButton();
 document.querySelectorAll('.menu-item').forEach(item => {
 item.addEventListener('click', (e) => {
 if (item.classList.contains('completed')) {
@@ -1653,6 +2083,10 @@ const betScenarios = [
 ]}
 ];
 let betGameState = { currentDay: 0, totalScore: 0, dayScores: [] };
+function formatBetScore(score) {
+  const unit = score === 1 ? 'балл' : score >= 2 && score <= 4 ? 'балла' : 'баллов';
+  return `${score} ${unit}`;
+}
 function resetBetGame() {
 betGameState = { currentDay: 0, totalScore: 0, dayScores: [] };
 document.getElementById('bet-intro-screen').style.display = 'block';
@@ -1693,7 +2127,7 @@ betGameState.dayScores[dayIndex] = choice.score;
 betGameState.totalScore += choice.score;
 document.getElementById('bet-result-title').textContent = `День ${scenario.day} завершён`;
 const scoreBadge = document.getElementById('bet-result-score-badge');
-scoreBadge.textContent = `${choice.score} ${choice.score === 1 ? 'балл' : choice.score >= 2 && choice.score <= 4 ? 'балла' : 'баллов'}`;
+scoreBadge.textContent = formatBetScore(choice.score);
 scoreBadge.className = `bet-result-score ${choice.isFail ? 'fail' : 'success'}`;
 document.getElementById('bet-result-text').textContent = choice.resultText;
 const conclusionEl = document.getElementById('bet-result-conclusion');
@@ -1712,15 +2146,10 @@ document.getElementById('bet-result-overlay').classList.add('active');
 function showBetFinal() {
 document.getElementById('bet-game-screen').style.display = 'none';
 document.getElementById('bet-final-screen').style.display = 'block';
-document.getElementById('bet-final-score-value').textContent = betGameState.totalScore;
+document.getElementById('bet-final-score-value').textContent = formatBetScore(betGameState.totalScore);
 }
 document.getElementById('btn-start-bet-game').addEventListener('click', startBetGame);
-document.getElementById('btn-complete-bet-game').addEventListener('click', () => {
-const menuBet = document.getElementById('menu-bet-of-the-day');
-if (menuBet) menuBet.classList.add('completed');
-updateStartDayButton();
-switchView('refusals-list');
-});
+document.getElementById('btn-complete-bet-game').addEventListener('click', () => completeSection('bet-of-the-day'));
 const bufferTasksData = [
 { id: 't1', name: 'Созвон с клиентом', duration: 3, color: 'sage' },
 { id: 't2', name: 'Подготовка отчёта', duration: 4, color: 'amber' },
@@ -1733,30 +2162,61 @@ const taskIcons = {
 'terracotta': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
 'olive': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
 };
-let bufferState = { placed: [] };
+let bufferState = { placed: [], passed: null };
 const bufferPanel = document.getElementById('buffer-task-panel');
 const bufferCalendar = document.getElementById('buffer-calendar');
 const btnBufferCheck = document.getElementById('btn-buffer-check');
 const bufferAppContainer = document.getElementById('buffer-app-container');
 const bufferFeedbackPanel = document.getElementById('buffer-feedback-panel');
-const bufferMobileHint = document.getElementById('buffer-mobile-hint');
-const isMobile = window.matchMedia('(max-width: 900px)').matches || 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 900;
 let selectedTaskId = null;
+let draggedTaskId = null;
+
+function refreshBufferTargets() {
+  const task = bufferTasksData.find(item => item.id === (draggedTaskId || selectedTaskId));
+  bufferCalendar.querySelectorAll('.buffer-slot').forEach(slot => {
+    slot.classList.remove('drag-over');
+    slot.classList.toggle('available', Boolean(task && canPlaceBufferTask(task, Number(slot.dataset.slot))));
+  });
+}
+
+function selectBufferTask(taskId) {
+  selectedTaskId = selectedTaskId === taskId ? null : taskId;
+  bufferPanel.querySelectorAll('.buffer-task').forEach(button => {
+    const selected = button.dataset.id === selectedTaskId;
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
+  refreshBufferTargets();
+}
+
+function enableBufferDragging(element, taskId) {
+  element.draggable = true;
+  element.addEventListener('dragstart', event => {
+    if (element.disabled) { event.preventDefault(); return; }
+    event.dataTransfer.setData('text/plain', taskId);
+    event.dataTransfer.effectAllowed = 'move';
+    draggedTaskId = taskId;
+    refreshBufferTargets();
+  });
+  element.addEventListener('dragend', () => {
+    draggedTaskId = null;
+    refreshBufferTargets();
+  });
+}
+
 function initBufferTasks() {
 bufferPanel.innerHTML = '';
 bufferTasksData.forEach(task => {
-const el = document.createElement('div');
+const el = document.createElement('button');
+el.type = 'button';
 el.className = 'buffer-task';
 el.dataset.id = task.id;
 el.dataset.duration = task.duration;
 el.dataset.color = task.color;
 el.innerHTML = `<span class="buffer-task-icon">${taskIcons[task.color]}</span><span class="buffer-task-name">${task.name}</span><span class="buffer-task-duration">${task.duration * 15} мин</span>`;
-if (isMobile) { el.addEventListener('click', () => handleMobileTaskClick(task.id)); }
-else {
-el.draggable = true;
-el.addEventListener('dragstart', (e) => { e.dataTransfer.setData('text/plain', task.id); e.dataTransfer.effectAllowed = 'move'; });
-el.addEventListener('dragend', () => { const isPlaced = bufferState.placed.some(p => p.taskId === task.id); if (!isPlaced) el.classList.remove('placed'); });
-}
+el.setAttribute('aria-pressed', 'false');
+el.addEventListener('click', () => selectBufferTask(task.id));
+enableBufferDragging(el, task.id);
 bufferPanel.appendChild(el);
 });
 }
@@ -1768,68 +2228,69 @@ const m = (i % 4) * 15;
 const label = `${h}:${m.toString().padStart(2, '0')}`;
 const row = document.createElement('div');
 row.className = 'buffer-cal-row';
-row.innerHTML = `<div class="buffer-time-label">${label}</div><div class="buffer-slot" data-slot="${i}"></div>`;
+row.innerHTML = `<div class="buffer-time-label">${label}</div><div class="buffer-slot" data-slot="${i}" tabindex="0" aria-label="${label}"></div>`;
 const slot = row.querySelector('.buffer-slot');
-if (isMobile) { slot.addEventListener('click', () => handleMobileSlotClick(i)); }
-else {
-slot.addEventListener('dragover', (e) => { e.preventDefault(); if (!isSlotOccupied(i)) slot.classList.add('drag-over'); });
+slot.addEventListener('click', event => { if (event.target === slot) placeSelectedBufferTask(i); });
+slot.addEventListener('keydown', event => {
+  if (event.target === slot && (event.key === 'Enter' || event.key === ' ')) {
+    event.preventDefault();
+    placeSelectedBufferTask(i);
+  }
+});
+slot.addEventListener('dragover', event => {
+  if (!slot.classList.contains('available')) return;
+  event.preventDefault();
+  slot.classList.add('drag-over');
+});
 slot.addEventListener('dragleave', () => slot.classList.remove('drag-over'));
-slot.addEventListener('drop', (e) => handleBufferDrop(e, i));
-}
+slot.addEventListener('drop', event => {
+  event.preventDefault();
+  const task = bufferTasksData.find(item => item.id === draggedTaskId);
+  if (task && canPlaceBufferTask(task, i)) placeTaskInCalendar(task, i);
+  draggedTaskId = null;
+  refreshBufferTargets();
+});
 bufferCalendar.appendChild(row);
 }
 }
-function handleMobileTaskClick(taskId) {
-const isPlaced = bufferState.placed.some(p => p.taskId === taskId);
-if (isPlaced) return;
-document.querySelectorAll('.buffer-task').forEach(el => el.classList.remove('selected'));
-if (selectedTaskId === taskId) { selectedTaskId = null; }
-else { selectedTaskId = taskId; const el = document.querySelector(`.buffer-task[data-id="${taskId}"]`); if (el) el.classList.add('selected'); }
+function placeSelectedBufferTask(slotIndex) {
+  if (!selectedTaskId) return;
+  const task = bufferTasksData.find(item => item.id === selectedTaskId);
+  if (!task || !placeTaskInCalendar(task, slotIndex)) return;
+  selectBufferTask(task.id);
+  if (window.matchMedia('(orientation: portrait)').matches) {
+    const next = bufferPanel.querySelector('.buffer-task:not(:disabled)') || btnBufferCheck;
+    next.focus({ preventScroll: true });
+    next.scrollIntoView({ block: 'nearest' });
+  }
 }
-function handleMobileSlotClick(slotIndex) {
-if (!selectedTaskId) return;
-const task = bufferTasksData.find(t => t.id === selectedTaskId);
-if (!task) return;
-placeTaskInCalendar(task, slotIndex);
-selectedTaskId = null;
-document.querySelectorAll('.buffer-task').forEach(el => el.classList.remove('selected'));
-}
-function handleMobilePlacedTaskClick(taskId) { returnTaskToPanel(taskId); }
-function isSlotOccupied(slotIndex) { return bufferState.placed.some(p => slotIndex >= p.startSlot && slotIndex < p.startSlot + p.duration); }
-function handleBufferDrop(e, startSlot) {
-e.preventDefault();
-const taskId = e.dataTransfer.getData('text/plain');
-const task = bufferTasksData.find(t => t.id === taskId);
-if (!task) return;
-placeTaskInCalendar(task, startSlot);
+function canPlaceBufferTask(task, startSlot) {
+  const endSlot = startSlot + task.duration;
+  return endSlot <= 16 && !bufferState.placed.some(placement =>
+    placement.taskId !== task.id && startSlot < placement.startSlot + placement.duration && endSlot > placement.startSlot
+  );
 }
 function placeTaskInCalendar(task, startSlot) {
-const existingPlacement = bufferState.placed.find(p => p.taskId === task.id);
-if (existingPlacement) { returnTaskToPanel(task.id); }
-if (startSlot + task.duration > 16) { alert('Задача не помещается в этот рабочий день. Попробуйте начать раньше.'); return; }
-for (let i = startSlot; i < startSlot + task.duration; i++) { if (isSlotOccupied(i)) { alert('Этот временной слот уже занят другой задачей.'); return; } }
+if (startSlot + task.duration > 16) { alert('Задача не помещается в этот рабочий день. Попробуйте начать раньше.'); return false; }
+if (!canPlaceBufferTask(task, startSlot)) { alert('Этот временной слот уже занят другой задачей.'); return false; }
+returnTaskToPanel(task.id);
 bufferState.placed.push({ taskId: task.id, startSlot, duration: task.duration });
 const taskEl = document.querySelector(`.buffer-task[data-id="${task.id}"]`);
-if (taskEl) taskEl.classList.add('placed');
-for (let i = startSlot; i < startSlot + task.duration; i++) {
-const slotEl = document.querySelector(`.buffer-slot[data-slot="${i}"]`);
-slotEl.classList.remove('drag-over');
-if (i === startSlot) {
-const block = document.createElement('div');
+taskEl.classList.add('placed');
+taskEl.disabled = true;
+const slotEl = bufferCalendar.querySelector(`.buffer-slot[data-slot="${startSlot}"]`);
+const block = document.createElement('button');
+block.type = 'button';
 block.className = 'buffer-placed-task';
 const colorMap = { 'sage': 'var(--accent-sage)', 'amber': 'var(--accent-amber)', 'terracotta': 'var(--accent-terracotta)', 'olive': 'var(--accent-olive)' };
 block.style.backgroundColor = colorMap[task.color];
 block.innerHTML = `${taskIcons[task.color]}<span>${task.name}</span>`;
-block.style.height = `calc(${task.duration} * 32px - 4px)`;
-if (isMobile) { block.addEventListener('click', () => handleMobilePlacedTaskClick(task.id)); }
-else {
-block.draggable = true;
-block.addEventListener('dragstart', (e) => { e.dataTransfer.setData('text/plain', task.id); e.dataTransfer.setData('action', 'move'); e.dataTransfer.effectAllowed = 'move'; });
-}
+block.style.setProperty('--duration', task.duration);
+block.addEventListener('click', () => returnTaskToPanel(task.id));
+enableBufferDragging(block, task.id);
 slotEl.appendChild(block);
-}
-}
 if (bufferState.placed.length === 4) { btnBufferCheck.style.display = 'flex'; btnBufferCheck.disabled = false; }
+return true;
 }
 function returnTaskToPanel(taskId) {
 const placedIndex = bufferState.placed.findIndex(p => p.taskId === taskId);
@@ -1841,15 +2302,23 @@ if (slotEl) { const block = slotEl.querySelector('.buffer-placed-task'); if (blo
 }
 bufferState.placed.splice(placedIndex, 1);
 const taskEl = document.querySelector(`.buffer-task[data-id="${taskId}"]`);
-if (taskEl) taskEl.classList.remove('placed');
+if (taskEl) {
+  taskEl.classList.remove('placed');
+  taskEl.disabled = false;
+}
 btnBufferCheck.style.display = 'none';
 btnBufferCheck.disabled = true;
+refreshBufferTargets();
 }
-if (!isMobile) {
-bufferPanel.addEventListener('dragover', (e) => { e.preventDefault(); });
-bufferPanel.addEventListener('drop', (e) => { e.preventDefault(); const action = e.dataTransfer.getData('action'); if (action === 'move') { const taskId = e.dataTransfer.getData('text/plain'); returnTaskToPanel(taskId); } });
-}
+bufferPanel.addEventListener('dragover', event => { if (draggedTaskId) event.preventDefault(); });
+bufferPanel.addEventListener('drop', event => {
+  event.preventDefault();
+  if (draggedTaskId) returnTaskToPanel(draggedTaskId);
+  draggedTaskId = null;
+  refreshBufferTargets();
+});
 btnBufferCheck.addEventListener('click', () => {
+if (bufferState.placed.length !== bufferTasksData.length) return;
 const sorted = [...bufferState.placed].sort((a, b) => a.startSlot - b.startSlot);
 let hasBuffer = true;
 let conflictSlots = [];
@@ -1859,6 +2328,7 @@ const nextStart = sorted[i + 1].startSlot;
 const gap = nextStart - currentEnd;
 if (gap < 1) { hasBuffer = false; conflictSlots.push(currentEnd - 1, currentEnd); }
 }
+bufferState.passed = hasBuffer;
 if (!hasBuffer) {
 bufferAppContainer.classList.add('shake');
 setTimeout(() => bufferAppContainer.classList.remove('shake'), 500);
@@ -1873,6 +2343,9 @@ for (let j = currentEnd; j < nextStart; j++) { const el = document.querySelector
 showBufferFeedback('positive');
 }
 bufferFeedbackPanel.style.display = 'block';
+bufferCalendar.querySelectorAll('button').forEach(button => { button.disabled = true; button.draggable = false; });
+bufferFeedbackPanel.focus({ preventScroll: true });
+if (window.matchMedia('(orientation: portrait)').matches) bufferFeedbackPanel.scrollIntoView({ block: 'end' });
 btnBufferCheck.disabled = true;
 });
 function showBufferFeedback(type) {
@@ -1886,8 +2359,10 @@ card.innerHTML = `
 <div class="buffer-timeline-item"><div class="buffer-timeline-time">10:30</div><div>Клиент опоздал на 10 минут. Созвон затянулся. Вы уже опаздываете на следующую задачу.</div></div>
 <div class="buffer-timeline-item"><div class="buffer-timeline-time">11:00</div><div>Вы влетели в отчёт без передышки. Данные не сошлись, пришлось перепроверять. Вместо 60 минут ушло 80.</div></div>
 <div class="buffer-timeline-item"><div class="buffer-timeline-time">12:00</div><div>Встреча с командой началась с вашего опоздания и стресса. Коллега поднял важный вопрос, и всё сдвинулось ещё дальше.</div></div>
-<div style="margin-top: 16px; padding: 12px; background: rgba(195, 106, 91, 0.1); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent-terracotta);">Эффект домино: одна задержка потянула за собой все остальные.</div>
-<button class="pomo-btn secondary" style="width: 100%; margin-top: 16px;" onclick="window.resetBufferSim()">Попробовать ещё раз</button>
+<div class="buffer-feedback-conclusion" style="margin-top: 16px; padding: 12px; background: rgba(195, 106, 91, 0.1); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent-terracotta);">Эффект домино: одна задержка потянула за собой все остальные.</div>
+<div class="buffer-feedback-actions">
+<button class="pomo-btn secondary" onclick="window.resetBufferSim()">Попробовать ещё раз</button>
+</div>
 `;
 } else {
 card.innerHTML = `
@@ -1896,7 +2371,7 @@ card.innerHTML = `
 <div class="buffer-timeline-item"><div class="buffer-timeline-time">10:30</div><div>Клиент опоздал на 10 минут? Не проблема. У вас после созвона 15 минут запаса. Вы спокойно закончили и переключились.</div></div>
 <div class="buffer-timeline-item"><div class="buffer-timeline-time">11:00</div><div>Данные в отчёте не сошлись, вы потратили лишние 15 минут. Буфер поглотил задержку — на встречу вы пришли вовремя.</div></div>
 <div class="buffer-timeline-item"><div class="buffer-timeline-time">12:15</div><div>Встреча прошла в спокойном режиме. До разбора почты ещё есть запас времени.</div></div>
-<div style="margin-top: 16px; padding: 12px; background: rgba(95, 111, 82, 0.1); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent-sage);">15 минут «воздуха» — это не потерянное время, а ваша страховка от хаоса.</div>
+<div class="buffer-feedback-conclusion" style="margin-top: 16px; padding: 12px; background: rgba(95, 111, 82, 0.1); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent-sage);">15 минут «воздуха» — это не потерянное время, а ваша страховка от хаоса.</div>
 <button class="cta-btn" style="width: 100%; margin-top: 16px;" onclick="window.showBufferSummary()">Отлично, идём дальше →</button>
 `;
 }
@@ -1904,17 +2379,28 @@ bufferFeedbackPanel.appendChild(card);
 }
 window.resetBufferSim = function() {
 bufferState.placed = [];
+bufferState.passed = null;
 bufferFeedbackPanel.style.display = 'none';
 btnBufferCheck.style.display = 'none';
 btnBufferCheck.disabled = true;
 selectedTaskId = null;
+draggedTaskId = null;
 initBufferTasks();
 initBufferCalendar();
+window.scrollTo(0, 0);
 };
 window.showBufferSummary = function() {
+if (bufferState.passed !== true) return;
 document.getElementById('buffer-state-playing').style.display = 'none';
 document.getElementById('buffer-state-summary').style.display = 'block';
+window.scrollTo(0, 0);
 };
+function resetBufferModule() {
+  window.resetBufferSim();
+  document.getElementById('buffer-state-intro').style.display = 'block';
+  document.getElementById('buffer-state-playing').style.display = 'none';
+  document.getElementById('buffer-state-summary').style.display = 'none';
+}
 document.getElementById('btn-start-buffer-sim').addEventListener('click', () => {
 document.getElementById('buffer-state-intro').style.display = 'none';
 document.getElementById('buffer-state-playing').style.display = 'block';
@@ -1922,31 +2408,25 @@ initBufferTasks();
 initBufferCalendar();
 });
 document.getElementById('btn-complete-buffer-module').addEventListener('click', () => {
-const menuBuffer = document.getElementById('menu-buffer-zones');
-if (menuBuffer) menuBuffer.classList.add('completed');
-updateStartDayButton();
-switchView('swiss-cheese');
+  if (bufferState.passed === true) completeSection('buffer-zones');
 });
 // =========================================================
 // ЛОГИКА ИГРЫ "МЕТОД ШВЕЙЦАРСКОГО СЫРА"
 // =========================================================
-let swissState = { holesMade: 0, totalHoles: 4, correctActions: 0 };
+const swissHoles = ['31% 43%', '65% 34%', '24% 68%', '73% 64%'];
+let swissHolesMade = 0;
 const btnStartSwissGame = document.getElementById('btn-start-swiss-game');
 const btnCompleteSwissModule = document.getElementById('btn-complete-swiss-module');
+const btnSwissNext = document.getElementById('btn-swiss-next');
+const swissMonster = document.querySelector('.swiss-monster-container img');
 if (btnStartSwissGame) {
 btnStartSwissGame.addEventListener('click', () => {
 document.getElementById('swiss-state-intro').style.display = 'none';
 document.getElementById('swiss-state-game').style.display = 'block';
 });
 }
-if (btnCompleteSwissModule) {
-btnCompleteSwissModule.addEventListener('click', () => {
-const menuSwiss = document.getElementById('menu-swiss-cheese');
-if (menuSwiss) menuSwiss.classList.add('completed');
-updateStartDayButton();
-switchView('dashboard');
-});
-}
+btnCompleteSwissModule.addEventListener('click', () => completeSection('swiss-cheese'));
+btnSwissNext.addEventListener('click', showSwissVictory);
 document.querySelectorAll('.swiss-action-btn').forEach(btn => {
 btn.addEventListener('click', function() {
 if (this.disabled) return;
@@ -1958,12 +2438,13 @@ this.disabled = true;
 });
 });
 function addSwissHole() {
-swissState.holesMade++;
-swissState.correctActions++;
-document.getElementById('swiss-holes-count').textContent = swissState.holesMade;
-const hole = document.getElementById(`swiss-hole-${swissState.holesMade}`);
-if (hole) { setTimeout(() => { hole.classList.add('visible'); }, 100); }
-if (swissState.holesMade >= swissState.totalHoles) { setTimeout(() => { showSwissVictory(); }, 1000); }
+swissHolesMade++;
+document.getElementById('swiss-holes-count').textContent = swissHolesMade;
+const masks = swissHoles.slice(0, swissHolesMade).map((position, index) =>
+  `radial-gradient(ellipse ${8 + index % 2}% ${9 - index % 2}% at ${position}, transparent 96%, black 100%)`
+);
+swissMonster.style.setProperty('--monster-mask', masks.join(', '));
+btnSwissNext.hidden = swissHolesMade < swissHoles.length;
 }
 function showSwissFeedback(isCorrect, action) {
 const feedbackEl = document.getElementById('swiss-feedback');
@@ -1982,17 +2463,20 @@ const texts = {
 'full-report': 'Это снова попытка справиться со всем сразу. Мозг в панике. Выберите что-то проще!',
 'collect-data': 'Собирать «все данные» — это снова большая задача. Начните с малого!'
 };
-feedbackEl.innerHTML = `<div class="swiss-feedback-header"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-terracotta)" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><h3 class="swiss-feedback-title">Слишком сложно!</h3></div><p class="swiss-feedback-text">${texts[action] || 'Это действие слишком большое. Выберите что-то абсурдно простое.'}</p>`;
+feedbackEl.innerHTML = `<div class="swiss-feedback-header"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 4.4a2 2 0 0 1 3.4 0l8 13.5a2 2 0 0 1-1.7 3H4a2 2 0 0 1-1.7-3zM12 9v4"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg><h3 class="swiss-feedback-title">Слишком сложно!</h3></div><p class="swiss-feedback-text">${texts[action] || 'Это действие слишком большое. Выберите что-то абсурдно простое.'}</p>`;
 }
 }
 function showSwissVictory() {
+if (swissHolesMade !== swissHoles.length) return;
 document.getElementById('swiss-state-game').style.display = 'none';
 document.getElementById('swiss-state-summary').style.display = 'block';
+window.scrollTo(0, 0);
 }
 function resetSwissGame() {
-swissState = { holesMade: 0, totalHoles: 4, correctActions: 0 };
+swissHolesMade = 0;
+btnSwissNext.hidden = true;
 document.getElementById('swiss-holes-count').textContent = '0';
-document.querySelectorAll('.swiss-hole').forEach(hole => { hole.classList.remove('visible'); });
+swissMonster.style.removeProperty('--monster-mask');
 document.querySelectorAll('.swiss-action-btn').forEach(btn => { btn.disabled = false; });
 document.getElementById('swiss-feedback').style.display = 'none';
 document.getElementById('swiss-state-intro').style.display = 'block';
@@ -2003,64 +2487,24 @@ document.getElementById('swiss-state-summary').style.display = 'none';
 // ЛОГИКА ВИДЕО-ПЛЕЕРА ДЛЯ ВКЛАДКИ "ВИДОСИКИ"
 // =========================================================
 (function() {
-  const videoElement = document.getElementById('youtube-video');
-  const playOverlay = document.getElementById('video-play-overlay');
-  const playIcon = document.getElementById('play-icon');
-  const pauseIcon = document.getElementById('pause-icon');
-  
-  if (!videoElement || !playOverlay) return;
-  
-  let isHovering = false;
-  
-  function showOverlay(showPause) {
-    playOverlay.style.display = 'flex';
-    setTimeout(() => { playOverlay.style.opacity = '1'; }, 10);
-    playOverlay.style.backgroundColor = 'rgba(44, 48, 43, 0.6)';
-    if (showPause) {
-      playIcon.style.display = 'none';
-      pauseIcon.style.display = 'block';
-    } else {
-      playIcon.style.display = 'block';
-      pauseIcon.style.display = 'none';
-    }
+  const video = document.getElementById('youtube-video');
+  const control = document.getElementById('video-play-overlay');
+  const player = video.parentElement;
+
+  function syncVideoControl() {
+    const playing = !video.paused && !video.ended && !video.error;
+    player.classList.toggle('is-playing', playing);
+    control.setAttribute('aria-label', playing ? 'Приостановить видео' : 'Воспроизвести видео');
   }
-  
-  function hideOverlay() {
-    playOverlay.style.opacity = '0';
-    setTimeout(() => {
-      if (!isHovering) playOverlay.style.display = 'none';
-    }, 300);
-  }
-  
-  playOverlay.addEventListener('click', () => {
-    if (videoElement.paused) {
-      videoElement.play().catch(() => {});
-      playOverlay.style.opacity = '0';
-      setTimeout(() => { playOverlay.style.display = 'none'; }, 300);
+
+  control.addEventListener('click', () => {
+    if (video.paused || video.ended) {
+      video.play().catch(syncVideoControl);
     } else {
-      videoElement.pause();
-      showOverlay(false);
+      video.pause();
     }
   });
-  
-  const videoContainer = videoElement.parentElement;
-  videoContainer.addEventListener('mouseenter', () => {
-    isHovering = true;
-    if (!videoElement.paused) {
-      showOverlay(true);
-    }
-  });
-  
-  videoContainer.addEventListener('mouseleave', () => {
-    isHovering = false;
-    if (!videoElement.paused) {
-      hideOverlay();
-    }
-  });
-  
-  videoElement.addEventListener('ended', () => {
-    showOverlay(false);
-  });
+  ['play', 'pause', 'ended', 'error'].forEach(event => video.addEventListener(event, syncVideoControl));
 })();
 </script>
 </body>
